@@ -1,0 +1,64 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{fancyhdr, graphicx}
+\usepackage{hyperref}
+\usepackage[margin=3cm]{geometry}
+
+\renewcommand{\headrulewidth}{0pt}
+
+\fancyhead[L]{
+\includegraphics[width=5cm]{i8_logo.pdf}
+}
+\fancyhead[R]{
+\includegraphics[width=8cm]{tum_logo.pdf}
+}
+
+\title{Temporal Behavior of PC-based Packet Processing}
+\date{\today}
+\author{Lukas Erlacher}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\begin{flushleft}
+Supervisor: Prof. Dr.-Ing. Georg Carle\\
+Advisor: Paul Emmerich (MSc.), Daniel Raumer (MSc.), Florian Wohlfart (MSc.)\\
+Type of work: Master's thesis
+\end{flushleft}
+
+
+\section*{Einführung}
+Im Rahmen des Forschungsprojekts MEMPHIS soll die Performance der Paketverarbeitung im Linux-Kernel im Hinblick auf Latenzen analysiert werden. Hierzu werden verschiedene Anwendungsfälle wie das Packet Forwarding mit Open vSwitch herausgearbeitet und mit Hilfe des MEMPHIS Testbeds gemessen.
+
+
+\section*{Motivation}
+Software-Routing mit und durch den Linux-Kernel macht einen immer größeren Teil der Routing-Infrastruktur an der Peripherie des Internet aus, insbesondere durch die fortschreitende Virtualisierung von Servern. Open vSwitch zum Beispiel ist eine Implementation von Software Defined Networking die das Forwarding im Linux Kernel als Hauptteil der Data Plane benutzt; einer der wichtigsten Anwendungsfälle von Open vSwitch ist das routen virtueller Netzwerke zwischen Hypervisor und VMs in virtualisierter Server-Infrastruktur (,,The Cloud``).
+
+Paketlatenzen sind dabei eine der hauptsächlichen Performance-Metriken, die in den verschiedenen Schichten von NIC, NIC-Treiber, NAPI-Kernelimplementierung, und Open vSwitch Data Plane bzw. User Space Application von einer großen Menge von Kopier- und Verarbeitungsschritten beeinflusst wird. Dabei gibt es eine Vielzahl von anpassbaren Parametern wie z.B. Puffergrößen, Interrupt-Raten, oder Polling-Intervallen.
+
+Paketlatenz in Software-Routern ist nicht ausführlich ausgeforscht. Da außerdem der Linux-Kernel stetig weiterentwickelt wird, sind neue Features wie low latency network device polling nicht bekannt und nicht umfassend analysiert. Es ist daher notwendig, dieser neuen Features durch die Anpassung bestehender Modelle Rechnung zu tragen.
+
+\section*{Herangehensweise}
+Zuerst soll ein Grundmodell der Latenzen in einem einfachen Software-Routing Szenario erstellt und ausgemessen werden. Als Grundlage können hier vorangegangene MEMPHIS-Arbeiten dienen, z.B. Scholz ,,A Model for Performance Prediction in PC-based Packet Processing Systems``.
+
+Der Einfluss verschiedener Parameter wie der Interrupt Throttle Rate und Low Latency Network Device Polling soll dann vermessen und in das Modell integriert werden.
+
+Mit weiteren Anwendungsfällen kann das Modell validiert werden.
+
+\vspace{1em}
+Weitere Quellen:
+\begin{itemize}
+  \item Low-latency Ethernet device polling, \url{http://lwn.net/Articles/551284/}
+  \item Intel X450 Data Sheet (Interrupt Throttling)
+  \item \dots
+\end{itemize}
+
+
+\section*{Zeitplan}
+
+\dots
+
+\end{document}
