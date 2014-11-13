@@ -31,26 +31,37 @@ Type of work: Master's thesis
 
 
 \section*{Introduction}
-In the context of the MEMPHIS project we analyse the packet processing performance in the linux kernel with respect to latency. We define various usecases such as packet forwarding with Open vSwitch and measure them in the MEMPHIS testbed.
+In the context of the MEMPHIS project we analyse the packet processing performance in the linux kernel with respect to latency. We define various use cases such as packet forwarding with Open vSwitch and measure them in the MEMPHIS testbed.
 
 
 \section*{Motivation}
-The Linux Kernel is a pervasive part of the peripheral routing infrastructure of the internet, especially due to increasing virtualization of servers. Open vSwitch is an implementation of Software Defined Networking that uses packet forwarding in the Linux Kernel as main part of its data plane. The most important usecase of Open vSwitch is the routing of virtual networks between the hypervisor and VMs in virtual server farms.
+The Linux Kernel is a pervasive part of the peripheral routing infrastructure of the internet, especially due to increasing virtualization of servers. Open vSwitch is a software switch that uses implements its data plane as kernel module on top of the kernel NAPI. The most important use case of Open vSwitch is routing in virtual networks between the hypervisor and VMs in virtual server farms.
 
 One of the main performance metrics for this is end-to-end latency. On the software router, latency is created by processing and copying packets between layers in the NIC, NIC driver, NAPI kernel implementation, and the Open vSwitch data plane or user space applications. There is a large number of parameters that can be adjusted such as buffer sizes, interrupt throttling rates, or polling intervals.
 
 Related work concerning software routers is not comprehensive and does not encompass new features in the Linux Kernel such as low latency network device polling. Existing results and models must be updated to account for these new features.
 
 \section*{Approach}
-Initially, a basic model for the latency sources in a simple software router scenario will be validated. It will be based on existing MEMPHIS publications such as the Bachelor Thesis ''A Model for Performance Prediction in PC-based Packet Processing Systems`` (Scholz) and ''A Study of Networking Software Induced Latency`` (Beifuß et.al.).
+Initially, a basic model for the latency sources in a simple software router scenario will be set up and validated. It will be based on existing MEMPHIS publications such as the Bachelor Thesis ''A Model for Performance Prediction in PC-based Packet Processing Systems`` (Scholz) and ''A Study of Networking Software Induced Latency`` (Beifuß et.al.).
 
 We will then measure the influence of varying parameters such as various buffer sizes, the NIC's Interrupt Throttle Rate, and NAPI's Low Latency Network Device Polling and update the model accordingly.
 
-This updated model will be validated with additional usecases.
+This updated model will be validated with additional use cases.
+\vspace{1em}
+
+The work will be incremental, but the outputs that are already conceptualised will be:
+
+\begin{itemize}
+  \item Comprehensive measurements of the influence of Interrupt Throttle Rate and Low Latency Network Device Polling on the latency of UDP packets forwarded by Open vSwitch
+  \item MEMPHIS test setups with MoonGen scripts and, as needed, contributions to MoonGen code (all measurements presented in the thesis should be easily repeatable in the MEMPHIS testbed)
+  \item An updated and validated model of the sources of end-to-end latency in a Linux software router
+\end{itemize}
 
 \vspace{1em}
-Additional sources:
+Sources:
 \begin{itemize}
+  \item Scholz, A Model for Performance Prediction in PC-based Packet Processing Systems
+  \item Beifuß et.al., A Study of Networking Software Induced Latency
   \item Low-latency Ethernet device polling, \url{http://lwn.net/Articles/551284/}
   \item Intel X450 Data Sheet (Interrupt Throttling)
   \item Bolla/Bruschi, Linux Software Router: Data Plane Optimization and Performance Evaluation
