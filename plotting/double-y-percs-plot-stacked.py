@@ -75,14 +75,14 @@ xmin = -0.2
 xmax = 3
 #xticks = []
 y0label = 'RTT (nsecs)'
-y1label = 'CPU load (fractional)'
+y1label = 'Interrupts'
 xlabel = 'Offered load (MPkt/s)'
 
 percentile_plots = {
-'rtt0' : [ 'RTT Lower 1.5\\%', 'dotted'],
-'rtt1' : [ 'RTT Lower Quartile', 'dashed'],
+#'rtt0' : [ 'RTT Lower 1.5\\%', 'dotted'],
+#'rtt1' : [ 'RTT Lower Quartile', 'dashed'],
 'rtt2' : [ 'RTT Median', 'solid'],
-'rtt3' : [ 'RTT Upper Quartile', 'dashed'],
+#'rtt3' : [ 'RTT Upper Quartile', 'dashed'],
 'rtt4' : [ 'RTT Upper 1.5\\%', 'dotted']
 }
 
@@ -100,10 +100,10 @@ for col in sorted(percentile_plots.keys()):
 
 plot1.append(
   plot_err_tpl.substitute(
-    ycol='cycles_avg',
-    errcol='cycles_stderr',
+    ycol='irq_avg',
+    errcol='irq_stderr',
     data='double-y-percs.dat',
-    label='Average CPU Load'
+    label='Interrupts'
   )
 )
 

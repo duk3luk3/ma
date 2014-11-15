@@ -16,10 +16,10 @@ parser.add_argument('files', metavar='N', action='store', nargs='+',
 args = parser.parse_args()
 
 mpps_per_mbit = 1 / 64 / 8
-cycles_at_full_load = 3.301 * 10**9 * 10 # 3.301GHz times 10 seconds
+cycles_at_full_load = 3.301 * 10**9 * 5 # 3.301GHz times 5 seconds
 
 #headers = ['Sent', 'TotalSent','Received','TotalReceived','HistSample', 'HistStats']
-loadgen_headers = ['TotalSent','TotalReceived','HistSample']
+loadgen_headers = ['TotalSent','TotalReceived','HistSample', 'Sent']
 datasets = {}
 
 nonempty = lambda s: s != ''
@@ -56,6 +56,8 @@ for fname in args.files:
           row.update({'cycles': split[0]})
         elif 'seconds' in split:
           row.update({'seconds': split[0]})
+        elif 'irq:irq_handler_entry' in split:
+          row.update({'interrupts': split[0]})
       datasets[run]['perf'].append(row)
     else:
       print("Don't know what to do with file {}".format(fname))
@@ -64,14 +66,17 @@ for fname in args.files:
 
 runs = sorted(datasets.keys())
 
-avg = lambda s : sum(s) / len(s)
+avg = lambda s : sum(s) / len(s) if len(s) > 0 else 0
 cycles_tr = lambda x: int(x['cycles'].replace(',','')) / cycles_at_full_load
+irq_sel = lambda x: int(x['interrupts'].replace(',',''))
 
 uniq = lambda xs: filter(lambda x: x is not None, [xs[i] if i == 0 or xs[i-1] != xs[i] else None for i in range(len(xs))])
 
 
-print("#Offered Load (mpps)\tRTT Lower 1.5% (us)\tRTT Lower Quartile (us)\tRTT Median (us)\tRTT Upper Quartile (us)\tRTT Upper 98.5% (us)\tAvg. CPU Load (cycles)\tCPU Load StdDev (cycles)")
-print("x\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd")
+print("#Offered Load (mpps)\tavg actual mpps sent\tRTT Lower 1.5% (us)\tRTT Lower Quartile (us)\tRTT Median (us)\tRTT Upper Quartile (us)\tRTT Upper 98.5% (us)\tAvg. CPU Load (cycles)\tCPU Load StdDev (cycles)\tInterrupts")
+print("x\tload_avg\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\tirq_avg\tirq_stderr")
+
+last_load = 0
 
 for run in runs:
   delays = []
@@ -79,25 +84,39 @@ for run in runs:
     for i in range(int(sample['count'])):
       delays.append(float(sample['delay']))
 
+  sent_avg = avg([float(x['rate']) for x in datasets[run].get('loadgen',{}).get('Sent',[])])
+
+  if sent_avg < last_load:
+    continue
+
+  last_load = sent_avg
+
   cycles = list(map(cycles_tr, datasets[run]['perf']))
 
   delay_percs = numpy.percentile(delays, [1.5,25,50,75,98.5]) if delays else [0,0,0,0,0]
   cycle_vals = [avg(cycles), numpy.std(cycles)]
+
+  interrupts = list(map(irq_sel, datasets[run]['perf']))
+  itr = [avg(interrupts), numpy.std(interrupts)]
+
 
   delay_len = len(delays or [])
 
   totals = int(datasets[run].get('loadgen', {}).get('TotalSent',[{}])[0].get('packets',0))
   totalr = int(datasets[run].get('loadgen', {}).get('TotalReceived',[{}])[0].get('packets',0))
 
+
   #delay_outliers = list(filter(lambda x: x < delay_percs[0] or x > delay_percs[4],uniq(delays))) if delays else []
 
   offered_load = datasets[run].get('loadgen',{}).get('offered_load',0)
 
-  print("{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(
+  print("{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(
     offered_load,
+    sent_avg,
     delay_percs[0],delay_percs[1],delay_percs[2],delay_percs[3],delay_percs[4],
     cycle_vals[0], cycle_vals[1],
     delay_len,
     totals, totalr,
-    totalr/totals if totals > 0 else 0
+    totalr/totals if totals > 0 else 0,
+    itr[0], itr[1]
     ))
