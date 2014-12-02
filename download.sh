@@ -1,2 +1,5 @@
-( scp -r kaunas:/srv/www/testbed/results/$(basename $(pwd))/klaipeda . || scp -r kaunas:/srv/www/testbed/results/$(basename $(pwd))/klaipeda . ) &
-( scp -r kaunas:/srv/www/testbed/results/$(basename $(pwd))/tartu . || scp -r kaunas:/srv/www/testbed/results/$(basename $(pwd))/tartu . )
+$name = $(basename $(pwd))
+( scp -r kaunas:/srv/www/testbed/results/${name}/klaipeda . || scp -r kaunas:/srv/www/testbed/results/${name}/klaipeda . ) &
+( scp -r kaunas:/srv/www/testbed/results/${name}/tartu . || scp -r kaunas:/srv/www/testbed/results/${name}/tartu . )
+
+echo "\newcommand{\theexperiment}{${name}}" > experiment.tex
