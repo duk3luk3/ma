@@ -16,7 +16,7 @@ parser.add_argument('files', metavar='N', action='store', nargs='+',
 args = parser.parse_args()
 
 mpps_per_mbit = 1 / 64 / 8
-cycles_at_full_load = 3.301 * 10**9 * 5 # 3.301GHz times 5 seconds
+cycles_at_full_load = 3.301 * 10**9  # 3.301GHz
 
 #headers = ['Sent', 'TotalSent','Received','TotalReceived','HistSample', 'HistStats']
 loadgen_headers = ['TotalSent','TotalReceived','HistSample', 'Sent']
@@ -67,8 +67,8 @@ for fname in args.files:
 runs = sorted(datasets.keys())
 
 avg = lambda s : sum(s) / len(s) if len(s) > 0 else 0
-cycles_tr = lambda x: int(x['cycles'].replace(',','')) / cycles_at_full_load
-irq_sel = lambda x: int(x['interrupts'].replace(',',''))
+cycles_tr = lambda x: int(x['cycles'].replace(',','')) / cycles_at_full_load / float(x['seconds'])
+irq_sel = lambda x: int(x['interrupts'].replace(',','')) / float(x['seconds'])
 
 uniq = lambda xs: filter(lambda x: x is not None, [xs[i] if i == 0 or xs[i-1] != xs[i] else None for i in range(len(xs))])
 

@@ -25,7 +25,7 @@
         width=14cm,
         height=8cm,
         xlabel=Offered Load (mpps),
-%        xmin=-0.2, xmax=2.2,
+        xmin=-0.1, xmax=2.3,
         tickpos=left,
         ytick align=outside,
         xtick align=outside
@@ -35,17 +35,17 @@
     title={\theexperiment}
   ]
   \addplot[solid] table[x=load_avg, y=rtt2]{double-y-percs.dat};
-  \addlegendentry{RTT Median}
+  \addlegendentry{RTT Median ns}
 
   \addplot[dotted] table[x=load_avg, y=rtt4]{double-y-percs.dat};
-  \addlegendentry{RTT Upper 1.5\%}
+  \addlegendentry{RTT Upper 1.5\% ns}
   \nextgroupplot
   \addplot[
     solid,
     mark=x,
     error bars/.cd, y dir=both, y explicit
   ] table[x=load_avg, y=irq_avg, y error={irq_stderr}]{double-y-percs.dat};
-  \addlegendentry{Interrupts}
+  \addlegendentry{Interrupts / sec}
 \pgfplotsset{every axis legend/.append style={at={(0.99,0.95)}, anchor=north east}}
   \nextgroupplot
   \addplot[
@@ -53,7 +53,7 @@
     mark=x,
     error bars/.cd, y dir=both, y explicit
   ] table[x=load_avg, y=cycles_avg, y error={cycles_stderr}]{double-y-percs.dat};
-  \addlegendentry{CPU Load}
+  \addlegendentry{CPU Load (fractional)}
 \pgfplotsset{every axis legend/.append style={at={(0.01,0.95)}, anchor=north west}}
   \end{groupplot}
 \end{tikzpicture}
