@@ -82,7 +82,7 @@ for run in runs:
   delays = []
   for sample in datasets[run].get('loadgen', {}).get('HistSample',[]):
     for i in range(int(sample['count'])):
-      delays.append(float(sample['delay']))
+      delays.append(float(sample['delay']) / 1000)
 
   sent_avg = avg([float(x['rate']) for x in datasets[run].get('loadgen',{}).get('Sent',[])])
 

@@ -1,2 +1,2 @@
-python plotting/double-y-percs-plot-stacked.py > testplot.tex
-pdflatex testplot.tex
+name=$(basename $(pwd))
+pdflatex ../testplot-stacked.tex && rm *.log *.aux && mv testplot-stacked.pdf testplot-${name}.pdf
