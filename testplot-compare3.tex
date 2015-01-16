@@ -1,16 +1,26 @@
-\documentclass[class=minimal,border=0pt]{standalone}
+\documentclass[]{article}
 
+\usepackage[cm]{fullpage}
 \usepackage{pgfplots}
+
+\usepgfplotslibrary{statistics}
+\usepgfplotslibrary{groupplots}
 \pgfplotsset{compat=newest}
 \pgfplotsset{grid style={dotted}}
-\usetikzlibrary{plotmarks}
-\usetikzlibrary{pgfplots.groupplots}
-\usepgfplotslibrary{statistics}
 \begin{document}
 \tikzset{every mark/.append style={scale=0.9}}
 
+\pagenumbering{gobble}
+\clearpage
+\thispagestyle{empty}
+
 \input{experiment_base.tex}
+\input{experiment_mod.tex}
 \input{experiment.tex}
+
+\noindent \baseexperiment \ (\basecomment) \ \\
+\modexperiment \ (\modcomment) \ \\
+\theexperiment \ (\thecomment) \ \\
 
 \begin{tikzpicture}
 \pgfplotsset{every axis legend/.append style={at={(0.01,0.95)}, anchor=north west}}
@@ -33,17 +43,21 @@
   ]
   \nextgroupplot[
     ymax=200,
-    title={\baseexperiment / \theexperiment (\thecomment)}
   ]
   \addplot[solid, color=red] table[x=load_avg, y=rtt2]{double-y-percs-base.dat};
   \addlegendentry{RTT Median us (Base)}
   \addplot[dotted, color=red] table[x=load_avg, y=rtt4]{double-y-percs-base.dat};
   \addlegendentry{RTT Upper 1.5\% us (Base)}
 
-  \addplot[solid, color=blue] table[x=load_avg, y=rtt2]{double-y-percs.dat};
+  \addplot[solid, color=blue] table[x=load_avg, y=rtt2]{double-y-percs-mod.dat};
   \addlegendentry{RTT Median us (Mod)}
-  \addplot[dotted, color=blue] table[x=load_avg, y=rtt4]{double-y-percs.dat};
+  \addplot[dotted, color=blue] table[x=load_avg, y=rtt4]{double-y-percs-mod.dat};
   \addlegendentry{RTT Upper 1.5\% us (Mod)}
+
+  \addplot[solid, color=green] table[x=load_avg, y=rtt2]{double-y-percs.dat};
+  \addlegendentry{RTT Median us}
+  \addplot[dotted, color=green] table[x=load_avg, y=rtt4]{double-y-percs.dat};
+  \addlegendentry{RTT Upper 1.5\% us}
   \nextgroupplot[
     ymax=200
     ]
@@ -59,8 +73,15 @@
     mark=x,
     color=blue,
     error bars/.cd, y dir=both, y explicit
-  ] table[x=load_avg, y=irq_avg, y error={irq_stderr}]{double-y-percs.dat};
+  ] table[x=load_avg, y=irq_avg, y error={irq_stderr}]{double-y-percs-mod.dat};
   \addlegendentry{Interrupts / sec (Mod)}
+  \addplot[
+    solid,
+    mark=x,
+    color=green,
+    error bars/.cd, y dir=both, y explicit
+  ] table[x=load_avg, y=irq_avg, y error={irq_stderr}]{double-y-percs.dat};
+  \addlegendentry{Interrupts / sec}
 \pgfplotsset{every axis legend/.append style={at={(0.99,0.95)}, anchor=north east}}
   \nextgroupplot
   \addplot[
@@ -75,8 +96,15 @@
     mark=x,
     color=blue,
     error bars/.cd, y dir=both, y explicit
-  ] table[x=load_avg, y=cycles_avg, y error={cycles_stderr}]{double-y-percs.dat};
+  ] table[x=load_avg, y=cycles_avg, y error={cycles_stderr}]{double-y-percs-mod.dat};
   \addlegendentry{CPU Load (fractional) (Mod)}
+  \addplot[
+    solid,
+    mark=x,
+    color=green,
+    error bars/.cd, y dir=both, y explicit
+  ] table[x=load_avg, y=cycles_avg, y error={cycles_stderr}]{double-y-percs.dat};
+  \addlegendentry{CPU Load (fractional)}
 \pgfplotsset{every axis legend/.append style={at={(0.01,0.95)}, anchor=north west}}
   \end{groupplot}
 \end{tikzpicture}
