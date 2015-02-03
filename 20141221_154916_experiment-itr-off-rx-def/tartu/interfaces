@@ -1,0 +1,20 @@
+auto lo
+    iface lo inet loopback
+
+    allow-hotplug eth-mgmt
+    iface eth-mgmt inet dhcp
+     pre-up /etc/initramfs-tools/scripts/init-premount/vlan
+     dns-nameservers 188.95.232.193
+
+    auto interface
+            allow-hotplug interface
+            iface interface inet static
+              address 192.168.1.2
+  netmask 255.255.255.0
+
+auto eth-test1
+            allow-hotplug eth-test1
+            iface eth-test1 inet static
+              address 192.168.1.2
+  netmask 255.255.255.0
+
