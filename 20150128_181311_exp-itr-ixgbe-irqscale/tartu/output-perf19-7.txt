@@ -1,0 +1,8 @@
+
+ Performance counter stats for 'sleep 10':
+
+    24,523,239,300 cycles                    #    0.000 GHz                    
+           182,567 irq:irq_handler_entry                                       
+
+      10.000676690 seconds time elapsed
+

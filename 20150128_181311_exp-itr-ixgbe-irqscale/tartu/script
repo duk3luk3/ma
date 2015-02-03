@@ -1,0 +1,138 @@
+#!/bin/bash
+export MOONGEN_COMMIT="f81b9e5"
+export SCRIPT_REPO="https://github.com/duk3luk3/MoonGenScripts.git"
+export IFACE="eth-test1"
+export MOONGEN_REPO="https://github.com/duk3luk3/MoonGen.git"
+export ITR=1
+export PKT_SIZE=0
+export RATE=10
+export IXGBE="ixgbe-3.14.5-itr-irqscale"
+export REPEATS=8
+export DURATION=10
+export OVS="2.0.0"
+export SCRIPT_COMMIT="61d35ed"
+export DURATION_STARTUP=8
+export RXBUF=512
+export IFACE="eth-test1"
+export RUNS=30
+export DELTA_RATE=40
+
+### device-under-test rolescript for latency load test
+#
+#  This rolescript sets up openvswitch with a mirror on $IFACE
+#  and runs perf to monitor the cpu load
+#
+
+### VARIABLES ###
+#  IFACE: string, interface to use
+#  DURATION: number, time in seconds for distinct perf calls
+#  RUNS: number, number of times to run perf for
+#  OVS: string, OpenVSwitch-Version
+#  RXBUF: integer, rxbuf size
+#  ITR: Integer, 0 / 1 / 956 - 488281
+# ###
+
+if [ -z "$OVS" ]
+then
+	export OVS=2.3.0
+fi
+
+
+kernel_version=$(uname -r | grep -oP '\d+\.\d+')
+testbed-install package linux-tools-${kernel_version}
+
+# install ixgbe, configure network
+# load dependencies as the driver is loaded via insmod in the install script
+# TODO: this should probably the moved to the install.sh of the ixgbe package
+modprobe -a dca mdio pps_core ptp
+testbed-install archive $IXGBE RSS=1,1,1,1 InterruptThrottleRate=$ITR,$ITR,$ITR,$ITR
+sleep 3
+# read out ixgbe startup messages
+dmesg | grep ixgbe
+
+ifconfig $IFACE 0.0.0.0
+ifconfig $IFACE up
+
+testbed-set-smp-affinity $IFACE 1
+
+ethtool -A $IFACE autoneg off rx off tx off
+ethtool -K $IFACE rx off tx off tso off gso off gro off lro off
+
+# set rx buffer
+ethtool -G $IFACE rx $RXBUF
+
+testbed-install archive openvswitch-$OVS
+
+# give ovs 5 seconds to get up
+sleep 5
+
+ovs-vsctl add-br br0
+ovs-vsctl add-port br0 $IFACE
+ovs-ofctl add-flow br0 "in_port=1,actions=in_port"
+
+ovs-vsctl show
+
+service ntp stop
+sleep 3
+ntpd -qg
+
+
+# disable turboboost (BIOS setting doesn't seem to do anything)
+apt-get -y install msr-tools
+modprobe msr
+wrmsr -p0 0x1a0 0x4000850089
+wrmsr -p1 0x1a0 0x4000850089
+wrmsr -p2 0x1a0 0x4000850089
+wrmsr -p3 0x1a0 0x4000850089
+
+# disable dynamic frequency underclocking
+apt-get -y install cpufrequtils
+modprobe acpi_cpufreq
+cpufreq-set -c 0 -g userspace
+cpufreq-set -c 1 -g userspace
+cpufreq-set -c 2 -g userspace
+cpufreq-set -c 3 -g userspace
+sleep 0.1
+cpufreq-set -f 3.301GHz -c 0
+cpufreq-set -f 3.301GHz -c 1
+cpufreq-set -f 3.301GHz -c 2
+cpufreq-set -f 3.301GHz -c 3
+
+taskset -pc 1,2,3 `pidof ovs-vswitchd`
+
+echo "Ready for test"
+
+testbed-sync READY_FOR_TEST $EXPERIMENT_ID
+testbed-sync START_TEST $EXPERIMENT_ID
+
+#clear dmesg ringbuffer
+dmesg -C
+
+for i in 0 $(seq $RUNS)
+do
+	echo "Run $i"
+	testbed-sync TEST_RUN_START$i $EXPERIMENT_ID
+	for r in $(seq $REPEATS)
+	do
+		#testbed-run perf$i-$r bash -c "perf stat -C 0 -e cycles -a sleep $DURATION 2>&1 >/dev/null | grep -oP '[^ ]* cycles.*|[^ ]* seconds'"
+		testbed-run perf$i-$r bash -c "perf stat -C 0 -e cycles,irq:irq_handler_entry -a sleep $DURATION 2>&1"
+		sleep $DURATION
+
+		PID=$(cat /tmp/pid-perf$i-$r)
+		while [ -d /proc/$PID ]
+		do
+			echo "Waiting for perf to finish... this shouldn't happen"
+			sleep 1
+		done
+		testbed-kill perf$i-$r
+
+		testbed-run dmesg$i-$r bash -c "dmesg -c | grep ixgbe | tail"
+		testbed-kill dmesg$i-$r
+	done
+	testbed-sync TEST_RUN_END$i $EXPERIMENT_ID
+
+
+	echo "Run $i finished"
+done
+
+testbed-sync TEST_FINISHED $EXPERIMENT_ID

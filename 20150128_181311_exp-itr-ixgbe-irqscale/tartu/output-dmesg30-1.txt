@@ -1,0 +1,4 @@
+[ 3485.980397] ixgbe: seen 220642112 packets since 277205026 ns ago (2000 packets per msec), IRQs set to 8000
+[ 3487.960387] ixgbe 0000:03:00.1 eth-test1: NIC Link is Down
+[ 3488.436671] ixgbe 0000:03:00.1 eth-test1: NIC Link is Up 10 Gbps, Flow Control: None
+[ 3488.498733] ixgbe: seen 31 packets since 520773752 ns ago (0 packets per msec), IRQs set to 100000

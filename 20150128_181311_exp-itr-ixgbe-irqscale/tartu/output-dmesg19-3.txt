@@ -1,0 +1,10 @@
+[ 2328.994980] ixgbe: seen 214 packets since 153310 ns ago (1395 packets per msec), IRQs set to 35830
+[ 2329.993947] ixgbe: seen 274 packets since 185147 ns ago (1479 packets per msec), IRQs set to 31966
+[ 2330.992991] ixgbe: seen 274 packets since 182177 ns ago (1504 packets per msec), IRQs set to 30816
+[ 2331.992058] ixgbe: seen 208 packets since 145715 ns ago (1427 packets per msec), IRQs set to 34358
+[ 2332.991050] ixgbe: seen 208 packets since 139052 ns ago (1495 packets per msec), IRQs set to 31230
+[ 2333.990175] ixgbe: seen 276 packets since 189462 ns ago (1456 packets per msec), IRQs set to 33024
+[ 2334.989117] ixgbe: seen 80 packets since 59010 ns ago (1355 packets per msec), IRQs set to 37670
+[ 2335.988184] ixgbe: seen 254 packets since 179671 ns ago (1413 packets per msec), IRQs set to 35002
+[ 2336.987136] ixgbe: seen 196 packets since 143726 ns ago (1363 packets per msec), IRQs set to 37302
+[ 2337.986224] ixgbe: seen 210 packets since 141001 ns ago (1489 packets per msec), IRQs set to 31506

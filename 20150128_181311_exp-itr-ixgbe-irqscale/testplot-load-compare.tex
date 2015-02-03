@@ -1,0 +1,44 @@
+\documentclass[class=minimal,border=0pt]{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{grid style={dotted}}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{pgfplots.groupplots}
+\usepgfplotslibrary{statistics}
+\begin{document}
+\tikzset{every mark/.append style={scale=0.9}}
+
+\begin{tikzpicture}
+\pgfplotsset{every axis legend/.append style={at={(0.01,0.98)}, anchor=north west}}
+ \begin{axis}[
+        grid=both,
+        width=18cm,
+        height=10cm,
+        xlabel=Offered Load (mpps),
+        ylabel=CPU Load (fractional),
+%        xmin=-0.1, xmax=2.3,
+        xmin=0, xmax=2.3,
+        tickpos=left,
+        ytick align=outside,
+        xtick align=outside
+  ]
+  \addplot[
+    solid,
+    mark=x,
+    color=blue,
+    error bars/.cd, y dir=both, y explicit
+  ] table[x=load_avg, y=cycles_avg, y error={cycles_stderr}]{double-y-percs-base.dat};
+  \addlegendentry{CPU Load (fractional) (Stock throttling)}
+  \addplot[
+    solid,
+    mark=x,
+    color=green,
+    error bars/.cd, y dir=both, y explicit
+  ] table[x=load_avg, y=cycles_avg, y error={cycles_stderr}]{double-y-percs.dat};
+  \addlegendentry{CPU Load (fractional) (Modified throttling)}
+  \end{axis}
+\end{tikzpicture}
+
+\end{document}
+

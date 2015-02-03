@@ -1,0 +1,9 @@
+auto lo
+    iface lo inet loopback
+
+    allow-hotplug eth-mgmt
+    iface eth-mgmt inet dhcp
+     pre-up /etc/initramfs-tools/scripts/init-premount/vlan
+     dns-nameservers 188.95.232.193
+
+    

@@ -1,0 +1,7 @@
+[ 3265.087782] ixgbe: seen 11070 packets since 5387487 ns ago (2000 packets per msec), IRQs set to 8000
+[ 3266.108201] ixgbe: seen 91902 packets since 44731790 ns ago (2000 packets per msec), IRQs set to 8000
+[ 3267.084849] ixgbe: seen 69308 packets since 33735926 ns ago (2000 packets per msec), IRQs set to 8000
+[ 3268.165963] ixgbe: seen 378268 packets since 184422761 ns ago (2000 packets per msec), IRQs set to 8000
+[ 3270.502186] ixgbe 0000:03:00.1 eth-test1: NIC Link is Down
+[ 3271.079607] ixgbe 0000:03:00.1 eth-test1: NIC Link is Up 10 Gbps, Flow Control: None
+[ 3271.140370] ixgbe: seen 31 packets since 636965580 ns ago (0 packets per msec), IRQs set to 100000
