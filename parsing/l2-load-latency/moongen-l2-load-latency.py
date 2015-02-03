@@ -141,7 +141,7 @@ for run in runs:
 
   offered_load = datasets[run].get('loadgen',{}).get('offered_load',0)
 
-  print("{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(
+  print("{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(
     offered_load,
     sent_avg,
     delay_percs[0],delay_percs[1],delay_percs[2],delay_percs[3],delay_percs[4],
