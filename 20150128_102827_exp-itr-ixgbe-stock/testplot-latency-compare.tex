@@ -1,0 +1,55 @@
+\documentclass[class=minimal,border=0pt]{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{grid style={dotted}}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{pgfplots.groupplots}
+\usepgfplotslibrary{statistics}
+\begin{document}
+\tikzset{every mark/.append style={scale=0.9}}
+
+\begin{tikzpicture}
+\pgfplotsset{every axis legend/.append style={at={(0.01,0.98)}, anchor=north west}}
+ \begin{axis}[
+        grid=both,
+        width=18cm,
+        height=10cm,
+        xlabel=Offered Load (mpps),
+        ylabel={Log(RTT) [us]},
+%        xmin=-0.1, xmax=2.3,
+        tickpos=left,
+        ytick align=outside,
+        xtick align=outside,
+        ymode=log,
+        ymax=1000,
+  ]
+  \addplot[
+    solid,
+    mark=x,
+    color=red,
+  ] table[x=load_avg, y=rtt2]{double-y-percs-base.dat};
+  \addlegendentry{RTT Median (No throttling)}
+  \addplot[
+    dotted,
+    mark=x,
+    color=red,
+  ] table[x=load_avg, y=rtt4]{double-y-percs-base.dat};
+  \addlegendentry{RTT 99th perc. (No throttling)}
+  \addplot[
+    solid,
+    mark=x,
+    color=blue,
+  ] table[x=load_avg, y=rtt2]{double-y-percs.dat};
+  \addlegendentry{RTT Median (Stock throttling)}
+  \addplot[
+    dotted,
+    mark=x,
+    color=blue,
+  ] table[x=load_avg, y=rtt4]{double-y-percs.dat};
+  \addlegendentry{RTT 99th perc. (Stock throttling)}
+  \end{axis}
+\end{tikzpicture}
+
+\end{document}
+

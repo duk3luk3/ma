@@ -1,0 +1,106 @@
+#!/bin/bash
+export MOONGEN_COMMIT="f81b9e5"
+export SCRIPT_REPO="https://github.com/duk3luk3/MoonGenScripts.git"
+export IFACE="02:00.0"
+export MOONGEN_REPO="https://github.com/duk3luk3/MoonGen.git"
+export ITR=1
+export PKT_SIZE=0
+export RATE=10
+export IXGBE="ixgbe-3.14.5"
+export REPEATS=8
+export DURATION=10
+export OVS="2.0.0"
+export SCRIPT_COMMIT="61d35ed"
+export DURATION_STARTUP=8
+export RXBUF=512
+export IFACE="02:00.0"
+export RUNS=30
+export DELTA_RATE=40
+
+######
+#
+# MoonGen Layer 2 incremental load test
+#
+
+### VARIABLES ###
+# IFACE: string, interface pci address
+# DURATION: int, length of one measurement in seconds
+# DURATION_STARTUP: int, extra padding to give MoonGen time to start (suggested: 10 seconds)
+# RUNS: int, number of test runs
+# PKT_SIZE: int, packet size
+# RATE: int, initial wire rate in kbps
+# DELTA_RATE: int, step width when increasing packet rate
+# MONGEN_REPO
+# MOONGEN_COMMIT
+###
+
+apt-get -y update
+
+### install MoonGen
+apt-get -y install build-essential cmake
+apt-get -y install linux-headers-`uname -r` 
+git clone ${MOONGEN_REPO} || testbed-sync ABORT_MOONGEN_CLONE $EXPERIMENT_ID
+git clone ${SCRIPT_REPO} || testbed-sync ABORT_MOONGEN_CLONE $EXPERIMENT_ID
+cd MoonGenScripts
+git checkout ${SCRIPT_COMMIT}
+cd ..
+cd MoonGen
+git checkout ${MOONGEN_COMMIT}
+git submodule update --init || testbed-sync ABORT_MOONGEN_DEPS $EXPERIMENT_ID
+./build.sh && echo "MoonGen built"
+./setup-hugetlbfs.sh
+cd build
+ln -s /root/MoonGenScripts scripts
+
+echo "MoonGen installed"
+
+sleep 3
+
+#used for testbed-sync
+service ntp stop
+sleep 3
+ntpd -q -g
+
+testbed-sync READY_FOR_TEST $EXPERIMENT_ID
+testbed-sync START_TEST $EXPERIMENT_ID
+
+DURATION=$(($DURATION*$RUNS+15))
+
+## idle test
+i=0
+
+echo "----------------------------------------------"
+echo "$(date) Test run 0 Kbps started"
+
+testbed-sync TEST_RUN_START$i $EXPERIMENT_ID
+sleep 1
+testbed-sync TEST_RUN_END$i $EXPERIMENT_ID
+
+for i in $(seq $RUNS)
+do
+	echo "----------------------------------------------"
+	echo "$(date) Test run $RATE Kbps started"
+
+	testbed-run send-$i-$RATE ./MoonGen scripts/l2-load-latency.lua 0 0 $RATE
+	sleep $DURATION_STARTUP
+	testbed-sync TEST_RUN_START$i $EXPERIMENT_ID
+
+	testbed-sync TEST_RUN_END$i $EXPERIMENT_ID
+	echo "$(date) Stopping load gen"
+	PID=$(cat /tmp/pid-send-$i-$RATE)
+	echo "Moongen PID:" $PID
+	kill -SIGINT $PID
+	sleep 1
+	while [ -d /proc/$PID ]
+	do
+		testbed-sync ABORT_MOONGEN_STUCK
+		sleep 1
+	done
+	testbed-kill send-$i-$RATE
+
+	RATE=$(($RATE+$DELTA_RATE))
+done
+
+testbed-sync TEST_FINISHED $EXPERIMENT_ID
+
+echo "Done."

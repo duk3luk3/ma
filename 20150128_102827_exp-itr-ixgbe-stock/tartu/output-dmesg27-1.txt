@@ -1,0 +1,2 @@
+[ 3161.670397] ixgbe 0000:03:00.1 eth-test1: NIC Link is Down
+[ 3162.796429] ixgbe 0000:03:00.1 eth-test1: NIC Link is Up 1 Gbps, Flow Control: None

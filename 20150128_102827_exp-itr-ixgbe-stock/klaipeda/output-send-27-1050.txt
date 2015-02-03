@@ -1,0 +1,265 @@
+EAL: Detected lcore 0 as core 0 on socket 0
+EAL: Detected lcore 1 as core 1 on socket 0
+EAL: Detected lcore 2 as core 2 on socket 0
+EAL: Detected lcore 3 as core 3 on socket 0
+EAL: Support maximum 64 logical core(s) by configuration.
+EAL: Detected 4 lcore(s)
+EAL:   cannot open VFIO container, error 2 (No such file or directory)
+EAL: VFIO support could not be initialized
+EAL: Setting up memory...
+EAL: Ask a virtual area of 0x3ec00000 bytes
+EAL: Virtual area found at 0x7f5e7f800000 (size = 0x3ec00000)
+EAL: Ask a virtual area of 0x800000 bytes
+EAL: Virtual area found at 0x7f5e7ee00000 (size = 0x800000)
+EAL: Ask a virtual area of 0x400000 bytes
+EAL: Virtual area found at 0x7f5e7e800000 (size = 0x400000)
+EAL: Ask a virtual area of 0x200000 bytes
+EAL: Virtual area found at 0x7f5e7e400000 (size = 0x200000)
+EAL: Ask a virtual area of 0x200000 bytes
+EAL: Virtual area found at 0x7f5e7e000000 (size = 0x200000)
+EAL: Ask a virtual area of 0x200000 bytes
+EAL: Virtual area found at 0x7f5e7dc00000 (size = 0x200000)
+EAL: Ask a virtual area of 0x200000 bytes
+EAL: Virtual area found at 0x7f5e7d800000 (size = 0x200000)
+EAL: Requesting 512 pages of size 2MB from socket 0
+EAL: TSC frequency is ~3192750 KHz
+EAL: Master core 0 is ready (tid=bf971820)
+EAL: Core 3 is ready (tid=7bdf6700)
+EAL: Core 2 is ready (tid=7c5f7700)
+EAL: Core 1 is ready (tid=7cdf8700)
+EAL: PCI device 0000:02:00.0 on NUMA socket -1
+EAL:   probe driver: 8086:10fb rte_ixgbe_pmd
+EAL:   PCI memory mapped at 0x7f5ebf8bb000
+EAL:   PCI memory mapped at 0x7f5ebf978000
+EAL: PCI device 0000:05:00.0 on NUMA socket -1
+EAL:   probe driver: 8086:10d3 rte_em_pmd
+EAL:   0000:05:00.0 not managed by UIO driver, skipping
+Found 1 usable ports:
+   Ports 0: 90:E2:BA:2C:CB:02 (82599EB 10-Gigabit SFI/SFP+ Network Connection)
+Port 0 (90:E2:BA:2C:CB:02) is up: full-duplex 1000 MBit/s
+Received,packets=285590,rate=0.285588
+Sent,packets=342395,rate=0.342393
+Received,packets=1611391,rate=1.325799
+Sent,packets=1830488,rate=1.488075
+Received,packets=2936692,rate=1.325299
+Sent,packets=3318581,rate=1.488075
+Received,packets=4262470,rate=1.325776
+Sent,packets=4806674,rate=1.488065
+[ERROR] Lua error in task timerSlave
+scripts/l2-load-latency.lua:134: attempt to perform arithmetic on a nil value
+Stack Traceback
+===============
+(2) global C function 'xpcall'
+(3) Lua upvalue 'slave' at file '../lua/include/main.lua:49'
+	Local variables:
+	 file = string: "scripts/l2-load-latency.lua"
+	 func = string: "timerSlave"
+(4) Lua function 'main' at file '../lua/include/main.lua:54' (best guess)
+	Local variables:
+	 task = string: "slave"
+	scripts/l2-load-latency.lua:134: attempt to perform arithmetic on a nil value
+Received,packets=5588433,rate=1.325961
+Sent,packets=6294736,rate=1.488057
+Received,packets=6914614,rate=1.326179
+Sent,packets=7782829,rate=1.488075
+Received,packets=8240193,rate=1.325577
+Sent,packets=9270922,rate=1.488075
+Received,packets=9566209,rate=1.326014
+Sent,packets=10759015,rate=1.488075
+Received,packets=10891721,rate=1.325510
+Sent,packets=12247108,rate=1.488075
+Received,packets=12216288,rate=1.324565
+Sent,packets=13735201,rate=1.488074
+Received,packets=13541065,rate=1.324773
+Sent,packets=15223325,rate=1.488107
+Received,packets=14866643,rate=1.325576
+Sent,packets=16711418,rate=1.488075
+Received,packets=16192314,rate=1.325669
+Sent,packets=18199511,rate=1.488075
+Received,packets=17517680,rate=1.325365
+Sent,packets=19687604,rate=1.488075
+Received,packets=18843553,rate=1.325871
+Sent,packets=21175697,rate=1.488075
+Received,packets=20169461,rate=1.325906
+Sent,packets=22663790,rate=1.488075
+Received,packets=21495037,rate=1.325574
+Sent,packets=24151883,rate=1.488076
+Received,packets=22820369,rate=1.325330
+Sent,packets=25639976,rate=1.488074
+Received,packets=24145717,rate=1.325346
+Sent,packets=27128069,rate=1.488076
+Received,packets=25471465,rate=1.325747
+Sent,packets=28616162,rate=1.488074
+Received,packets=26797070,rate=1.325603
+Sent,packets=30104286,rate=1.488106
+Received,packets=28122767,rate=1.325696
+Sent,packets=31592379,rate=1.488075
+Received,packets=29448345,rate=1.325576
+Sent,packets=33080472,rate=1.488075
+Received,packets=30774107,rate=1.325761
+Sent,packets=34568565,rate=1.488075
+Received,packets=32099714,rate=1.325605
+Sent,packets=36056658,rate=1.488075
+Received,packets=33425477,rate=1.325761
+Sent,packets=37544751,rate=1.488076
+Received,packets=34751140,rate=1.325661
+Sent,packets=39032844,rate=1.488074
+Received,packets=36077100,rate=1.325928
+Sent,packets=40520937,rate=1.488076
+Received,packets=37402579,rate=1.325477
+Sent,packets=42009030,rate=1.488076
+Received,packets=38728257,rate=1.325676
+Sent,packets=43497123,rate=1.488075
+Received,packets=40053877,rate=1.325618
+Sent,packets=44985216,rate=1.488076
+Received,packets=41379641,rate=1.325763
+Sent,packets=46473340,rate=1.488105
+Received,packets=42705163,rate=1.325520
+Sent,packets=47961433,rate=1.488076
+Received,packets=44030842,rate=1.325678
+Sent,packets=49449526,rate=1.488075
+Received,packets=45356554,rate=1.325710
+Sent,packets=50937619,rate=1.488075
+Received,packets=46682270,rate=1.325715
+Sent,packets=52425712,rate=1.488076
+Received,packets=48007733,rate=1.325459
+Sent,packets=53913805,rate=1.488074
+Received,packets=49333531,rate=1.325797
+Sent,packets=55401898,rate=1.488076
+Received,packets=50659323,rate=1.325790
+Sent,packets=56889991,rate=1.488075
+Received,packets=51985158,rate=1.325834
+Sent,packets=58378084,rate=1.488074
+Received,packets=53310659,rate=1.325499
+Sent,packets=59866177,rate=1.488076
+Received,packets=54636491,rate=1.325831
+Sent,packets=61354301,rate=1.488106
+Received,packets=55962234,rate=1.325741
+Sent,packets=62842394,rate=1.488075
+Received,packets=57287810,rate=1.325575
+Sent,packets=64330487,rate=1.488076
+Received,packets=58613810,rate=1.325996
+Sent,packets=65818580,rate=1.488075
+Received,packets=59939626,rate=1.325814
+Sent,packets=67306673,rate=1.488075
+Received,packets=61265543,rate=1.325879
+Sent,packets=68794766,rate=1.488077
+Received,packets=62591119,rate=1.325575
+Sent,packets=70282859,rate=1.488075
+Received,packets=63916678,rate=1.325558
+Sent,packets=71770952,rate=1.488075
+Received,packets=65242295,rate=1.325616
+Sent,packets=73259045,rate=1.488075
+Received,packets=66567934,rate=1.325638
+Sent,packets=74747138,rate=1.488075
+Received,packets=67892957,rate=1.325022
+Sent,packets=76235262,rate=1.488105
+Received,packets=69218818,rate=1.325860
+Sent,packets=77723355,rate=1.488076
+Received,packets=70544408,rate=1.325589
+Sent,packets=79211448,rate=1.488075
+Received,packets=71870080,rate=1.325671
+Sent,packets=80699541,rate=1.488075
+Received,packets=73195768,rate=1.325668
+Sent,packets=82187634,rate=1.488076
+Received,packets=74521466,rate=1.325698
+Sent,packets=83675727,rate=1.488075
+Received,packets=75847124,rate=1.325658
+Sent,packets=85163820,rate=1.488075
+Received,packets=77172651,rate=1.325527
+Sent,packets=86651913,rate=1.488076
+Received,packets=78498380,rate=1.325729
+Sent,packets=88140006,rate=1.488074
+Received,packets=79824097,rate=1.325717
+Sent,packets=89628099,rate=1.488075
+Received,packets=81149895,rate=1.325798
+Sent,packets=91116192,rate=1.488076
+Received,packets=82475659,rate=1.325764
+Sent,packets=92604316,rate=1.488107
+Received,packets=83801346,rate=1.325687
+Sent,packets=94092409,rate=1.488076
+Received,packets=85127001,rate=1.325655
+Sent,packets=95580502,rate=1.488075
+Received,packets=86452695,rate=1.325694
+Sent,packets=97068595,rate=1.488076
+Received,packets=87778445,rate=1.325750
+Sent,packets=98556688,rate=1.488075
+Received,packets=89104005,rate=1.325560
+Sent,packets=100044781,rate=1.488076
+Received,packets=90429702,rate=1.325697
+Sent,packets=101532874,rate=1.488075
+Received,packets=91755413,rate=1.325711
+Sent,packets=103020967,rate=1.488076
+Received,packets=93081231,rate=1.325818
+Sent,packets=104509060,rate=1.488075
+Received,packets=94406761,rate=1.325530
+Sent,packets=105997153,rate=1.488076
+Received,packets=95732330,rate=1.325569
+Sent,packets=107485277,rate=1.488107
+Received,packets=97058150,rate=1.325820
+Sent,packets=108973370,rate=1.488076
+Received,packets=98383586,rate=1.325436
+Sent,packets=110461463,rate=1.488075
+Received,packets=99709279,rate=1.325693
+Sent,packets=111949556,rate=1.488076
+Received,packets=101034885,rate=1.325606
+Sent,packets=113437649,rate=1.488075
+Received,packets=102360312,rate=1.325427
+Sent,packets=114925742,rate=1.488074
+Received,packets=103686046,rate=1.325734
+Sent,packets=116413835,rate=1.488076
+Received,packets=105011765,rate=1.325719
+Sent,packets=117901928,rate=1.488076
+Received,packets=106337309,rate=1.325544
+Sent,packets=119390021,rate=1.488075
+Received,packets=107662894,rate=1.325585
+Sent,packets=120878114,rate=1.488075
+Received,packets=108988894,rate=1.326000
+Sent,packets=122366238,rate=1.488105
+Received,packets=110314757,rate=1.325863
+Sent,packets=123854331,rate=1.488077
+Received,packets=111640174,rate=1.325417
+Sent,packets=125342424,rate=1.488076
+Received,packets=112965700,rate=1.325526
+Sent,packets=126830517,rate=1.488075
+Received,packets=114291399,rate=1.325699
+Sent,packets=128318610,rate=1.488075
+Received,packets=115616919,rate=1.325520
+Sent,packets=129806703,rate=1.488076
+Received,packets=116942607,rate=1.325688
+Sent,packets=131294796,rate=1.488075
+Received,packets=118268316,rate=1.325709
+Sent,packets=132782889,rate=1.488076
+Received,packets=119594064,rate=1.325748
+Sent,packets=134270982,rate=1.488077
+Received,packets=120919659,rate=1.325595
+Sent,packets=135759075,rate=1.488076
+Received,packets=122245354,rate=1.325695
+Sent,packets=137247168,rate=1.488076
+Received,packets=123570991,rate=1.325637
+Sent,packets=138735292,rate=1.488106
+Received,packets=124896608,rate=1.325617
+Sent,packets=140223385,rate=1.488076
+Received,packets=126222287,rate=1.325679
+Sent,packets=141711478,rate=1.488076
+Received,packets=127547935,rate=1.325648
+Sent,packets=143199571,rate=1.488075
+Received,packets=128873360,rate=1.325425
+Sent,packets=144687664,rate=1.488076
+Received,packets=130198877,rate=1.325517
+Sent,packets=146175757,rate=1.488076
+Received,packets=131524592,rate=1.325715
+Sent,packets=147663850,rate=1.488075
+Received,packets=132850190,rate=1.325598
+Sent,packets=149151943,rate=1.488076
+Received,packets=134176082,rate=1.325892
+Sent,packets=150640036,rate=1.488077
+Received,packets=135501807,rate=1.325725
+Sent,packets=152128129,rate=1.488075
+Received,packets=136827230,rate=1.325423
+Sent,packets=153616253,rate=1.488107
+Received,packets=138151442,rate=1.324212
+Sent,packets=155104346,rate=1.488075
+TotalSent,packets=156274782,rate=1.477248
+Received,packets=139203184,rate=1.051742
+TotalReceived,packets=139203184
