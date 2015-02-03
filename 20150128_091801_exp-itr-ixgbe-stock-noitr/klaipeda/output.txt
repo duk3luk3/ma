@@ -1,0 +1,1140 @@
+
+
+
+Ign http://deconstruct.net.in.tum.de wheezy InRelease
+Get:1 http://deconstruct.net.in.tum.de grml-live InRelease [5,045 B]
+Get:2 http://deconstruct.net.in.tum.de grml-stable InRelease [7,932 B]
+Get:3 http://deconstruct.net.in.tum.de grml-testing InRelease [7,935 B]
+Hit http://deconstruct.net.in.tum.de wheezy Release.gpg
+Get:4 http://deconstruct.net.in.tum.de grml-live/main Sources [1,314 B]
+Get:5 http://deconstruct.net.in.tum.de grml-live/main amd64 Packages [4,809 B]
+Get:6 http://deconstruct.net.in.tum.de grml-stable/main Sources [10.7 kB]
+Get:7 http://deconstruct.net.in.tum.de grml-stable/main amd64 Packages [28.0 kB]
+Get:8 http://deconstruct.net.in.tum.de grml-testing/main Sources [11.1 kB]
+Get:9 http://deconstruct.net.in.tum.de grml-testing/main amd64 Packages [29.6 kB]
+Hit http://deconstruct.net.in.tum.de wheezy Release
+Hit http://deconstruct.net.in.tum.de wheezy/main Sources
+Hit http://deconstruct.net.in.tum.de wheezy/contrib Sources
+Hit http://deconstruct.net.in.tum.de wheezy/non-free Sources
+Hit http://deconstruct.net.in.tum.de wheezy/main amd64 Packages
+Hit http://deconstruct.net.in.tum.de wheezy/contrib amd64 Packages
+Hit http://deconstruct.net.in.tum.de wheezy/non-free amd64 Packages
+Hit http://deconstruct.net.in.tum.de wheezy/contrib Translation-en
+Hit http://deconstruct.net.in.tum.de wheezy/main Translation-en
+Hit http://deconstruct.net.in.tum.de wheezy/non-free Translation-en
+Ign http://deconstruct.net.in.tum.de grml-live/main Translation-en_US
+Ign http://deconstruct.net.in.tum.de grml-live/main Translation-en
+Ign http://deconstruct.net.in.tum.de grml-stable/main Translation-en_US
+Ign http://deconstruct.net.in.tum.de grml-stable/main Translation-en
+Ign http://deconstruct.net.in.tum.de grml-testing/main Translation-en_US
+Ign http://deconstruct.net.in.tum.de grml-testing/main Translation-en
+Fetched 106 kB in 10s (10.4 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  cmake-data emacsen-common g++ g++-4.7 gcc gcc-4.7 libarchive12 libc-bin
+  libc-dev-bin libc6 libc6-dev libgomp1 libitm1 libnettle4 libstdc++6-4.7-dev
+  libxmlrpc-core-c3 linux-libc-dev
+Suggested packages:
+  g++-multilib g++-4.7-multilib gcc-4.7-doc libstdc++6-4.7-dbg gcc-multilib
+  manpages-dev autoconf automake1.9 libtool flex bison gdb gcc-doc
+  gcc-4.7-multilib libmudflap0-4.7-dev gcc-4.7-locales libgcc1-dbg
+  libgomp1-dbg libitm1-dbg libquadmath0-dbg libmudflap0-dbg libcloog-ppl0
+  libppl-c2 libppl7 binutils-gold glibc-doc libstdc++6-4.7-doc
+The following NEW packages will be installed:
+  build-essential cmake cmake-data emacsen-common g++ g++-4.7 gcc gcc-4.7
+  libarchive12 libc-dev-bin libc6-dev libgomp1 libitm1 libnettle4
+  libstdc++6-4.7-dev libxmlrpc-core-c3 linux-libc-dev
+The following packages will be upgraded:
+  libc-bin libc6
+2 upgraded, 17 newly installed, 0 to remove and 256 not upgraded.
+Need to get 33.9 MB of archives.
+After this operation, 76.8 MB of additional disk space will be used.
+Get:1 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main libc-bin amd64 2.13-38+deb7u6 [1,273 kB]
+Get:2 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main libc6 amd64 2.13-38+deb7u6 [4,214 kB]
+Get:3 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main libnettle4 amd64 2.4-3 [149 kB]
+Get:4 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main libarchive12 amd64 3.0.4-3+nmu1 [304 kB]
+Get:5 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main libgomp1 amd64 4.7.2-5 [27.5 kB]
+Get:6 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main libitm1 amd64 4.7.2-5 [36.6 kB]
+Get:7 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main libc-dev-bin amd64 2.13-38+deb7u6 [227 kB]
+Get:8 http://deconstruct.net.in.tum.de/deb.grml.org/ grml-testing/main linux-libc-dev amd64 3.16.7-1+grml.1 [708 kB]
+Get:9 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main libc6-dev amd64 2.13-38+deb7u6 [2,657 kB]
+Get:10 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main gcc-4.7 amd64 4.7.2-5 [8,296 kB]
+Get:11 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main gcc amd64 4:4.7.2-1 [5,064 B]
+Get:12 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main libstdc++6-4.7-dev amd64 4.7.2-5 [1,726 kB]
+Get:13 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main g++-4.7 amd64 4.7.2-5 [8,011 kB]
+Get:14 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main g++ amd64 4:4.7.2-1 [1,374 B]
+Get:15 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main build-essential amd64 11.5 [7,178 B]
+Get:16 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main libxmlrpc-core-c3 amd64 1.16.33-3.2 [186 kB]
+Get:17 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main emacsen-common all 2.0.5 [20.9 kB]
+Get:18 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main cmake-data all 2.8.9-1 [1,359 kB]
+Get:19 http://deconstruct.net.in.tum.de/cdn.debian.net/debian/ wheezy/main cmake amd64 2.8.9-1 [4,730 kB]
+dpkg-preconfigure: unable to re-open stdin: No such file or directory
+Fetched 33.9 MB in 1s (29.0 MB/s)
+(Reading database ... 56607 files and directories currently installed.)
+Preparing to replace libc-bin 2.13-38 (using .../libc-bin_2.13-38+deb7u6_amd64.deb) ...
+Unpacking replacement libc-bin ...
+Processing triggers for man-db ...
+Setting up libc-bin (2.13-38+deb7u6) ...
+(Reading database ... 56607 files and directories currently installed.)
+Preparing to replace libc6:amd64 2.13-38 (using .../libc6_2.13-38+deb7u6_amd64.deb) ...
+Unpacking replacement libc6:amd64 ...
+Setting up libc6:amd64 (2.13-38+deb7u6) ...
+Selecting previously unselected package libnettle4:amd64.
+(Reading database ... 56607 files and directories currently installed.)
+Unpacking libnettle4:amd64 (from .../libnettle4_2.4-3_amd64.deb) ...
+Selecting previously unselected package libarchive12:amd64.
+Unpacking libarchive12:amd64 (from .../libarchive12_3.0.4-3+nmu1_amd64.deb) ...
+Selecting previously unselected package libgomp1:amd64.
+Unpacking libgomp1:amd64 (from .../libgomp1_4.7.2-5_amd64.deb) ...
+Selecting previously unselected package libitm1:amd64.
+Unpacking libitm1:amd64 (from .../libitm1_4.7.2-5_amd64.deb) ...
+Selecting previously unselected package libc-dev-bin.
+Unpacking libc-dev-bin (from .../libc-dev-bin_2.13-38+deb7u6_amd64.deb) ...
+Selecting previously unselected package linux-libc-dev:amd64.
+Unpacking linux-libc-dev:amd64 (from .../linux-libc-dev_3.16.7-1+grml.1_amd64.deb) ...
+Selecting previously unselected package libc6-dev:amd64.
+Unpacking libc6-dev:amd64 (from .../libc6-dev_2.13-38+deb7u6_amd64.deb) ...
+Selecting previously unselected package gcc-4.7.
+Unpacking gcc-4.7 (from .../gcc-4.7_4.7.2-5_amd64.deb) ...
+Selecting previously unselected package gcc.
+Unpacking gcc (from .../gcc_4%3a4.7.2-1_amd64.deb) ...
+Selecting previously unselected package libstdc++6-4.7-dev.
+Unpacking libstdc++6-4.7-dev (from .../libstdc++6-4.7-dev_4.7.2-5_amd64.deb) ...
+Selecting previously unselected package g++-4.7.
+Unpacking g++-4.7 (from .../g++-4.7_4.7.2-5_amd64.deb) ...
+Selecting previously unselected package g++.
+Unpacking g++ (from .../g++_4%3a4.7.2-1_amd64.deb) ...
+Selecting previously unselected package build-essential.
+Unpacking build-essential (from .../build-essential_11.5_amd64.deb) ...
+Selecting previously unselected package libxmlrpc-core-c3.
+Unpacking libxmlrpc-core-c3 (from .../libxmlrpc-core-c3_1.16.33-3.2_amd64.deb) ...
+Selecting previously unselected package emacsen-common.
+Unpacking emacsen-common (from .../emacsen-common_2.0.5_all.deb) ...
+Selecting previously unselected package cmake-data.
+Unpacking cmake-data (from .../cmake-data_2.8.9-1_all.deb) ...
+Selecting previously unselected package cmake.
+Unpacking cmake (from .../cmake_2.8.9-1_amd64.deb) ...
+Processing triggers for man-db ...
+Setting up libnettle4:amd64 (2.4-3) ...
+Setting up libarchive12:amd64 (3.0.4-3+nmu1) ...
+Setting up libgomp1:amd64 (4.7.2-5) ...
+Setting up libitm1:amd64 (4.7.2-5) ...
+Setting up libc-dev-bin (2.13-38+deb7u6) ...
+Setting up linux-libc-dev:amd64 (3.16.7-1+grml.1) ...
+Setting up libc6-dev:amd64 (2.13-38+deb7u6) ...
+Setting up gcc-4.7 (4.7.2-5) ...
+Setting up gcc (4:4.7.2-1) ...
+Setting up libxmlrpc-core-c3 (1.16.33-3.2) ...
+Setting up emacsen-common (2.0.5) ...
+Setting up cmake-data (2.8.9-1) ...
+Install cmake-data for emacs
+Setting up cmake (2.8.9-1) ...
+Setting up g++-4.7 (4.7.2-5) ...
+Setting up g++ (4:4.7.2-1) ...
+update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+Setting up build-essential (11.5) ...
+Setting up libstdc++6-4.7-dev (4.7.2-5) ...
+
+	  You have to configure "localepurge" with the command
+
+	      dpkg-reconfigure localepurge
+
+	  to make /usr/sbin/localepurge actually start to function.
+
+	  Nothing to be done, exiting ...
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  linux-headers-3.7-1-grml-common linux-kbuild-3.7
+The following NEW packages will be installed:
+  linux-headers-3.7-1-grml-amd64 linux-headers-3.7-1-grml-common
+  linux-kbuild-3.7
+0 upgraded, 3 newly installed, 0 to remove and 256 not upgraded.
+Need to get 4,260 kB of archives.
+After this operation, 29.3 MB of additional disk space will be used.
+Get:1 http://deconstruct.net.in.tum.de/deb.grml.org/ grml-stable/main linux-headers-3.7-1-grml-common amd64 3.7.9-1+grml.1 [3,664 kB]
+Get:2 http://deconstruct.net.in.tum.de/deb.grml.org/ grml-stable/main linux-kbuild-3.7 amd64 3.7.1-1~experimental.1 [248 kB]
+Get:3 http://deconstruct.net.in.tum.de/deb.grml.org/ grml-stable/main linux-headers-3.7-1-grml-amd64 amd64 3.7.9-1+grml.1 [348 kB]
+dpkg-preconfigure: unable to re-open stdin: No such file or directory
+Fetched 4,260 kB in 0s (13.2 MB/s)
+Selecting previously unselected package linux-headers-3.7-1-grml-common.
+(Reading database ... 59441 files and directories currently installed.)
+Unpacking linux-headers-3.7-1-grml-common (from .../linux-headers-3.7-1-grml-common_3.7.9-1+grml.1_amd64.deb) ...
+Selecting previously unselected package linux-kbuild-3.7.
+Unpacking linux-kbuild-3.7 (from .../linux-kbuild-3.7_3.7.1-1~experimental.1_amd64.deb) ...
+Selecting previously unselected package linux-headers-3.7-1-grml-amd64.
+Unpacking linux-headers-3.7-1-grml-amd64 (from .../linux-headers-3.7-1-grml-amd64_3.7.9-1+grml.1_amd64.deb) ...
+Setting up linux-headers-3.7-1-grml-common (3.7.9-1+grml.1) ...
+Setting up linux-kbuild-3.7 (3.7.1-1~experimental.1) ...
+Setting up linux-headers-3.7-1-grml-amd64 (3.7.9-1+grml.1) ...
+
+	  You have to configure "localepurge" with the command
+
+	      dpkg-reconfigure localepurge
+
+	  to make /usr/sbin/localepurge actually start to function.
+
+	  Nothing to be done, exiting ...
+
+Cloning into 'MoonGen'...
+Cloning into 'MoonGenScripts'...
+Note: checking out '61d35ed'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b new_branch_name
+
+HEAD is now at 61d35ed... buffer tx timestamps to make timestamp collection more robust
+Note: checking out 'f81b9e5'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b new_branch_name
+
+HEAD is now at f81b9e5... add seqnum support for ptp
+Submodule 'deps/luajit' (http://luajit.org/git/luajit-2.0.git) registered for path 'deps/luajit'
+Cloning into 'deps/luajit'...
+Submodule path 'deps/luajit': checked out '42ed4e53a525cdd763b3707f6c41d5bd9ec92689'
+==== Building LuaJIT 2.1.0-alpha ====
+make -C src
+make[1]: Entering directory `/root/MoonGen/deps/luajit/src'
+HOSTCC    host/minilua.o
+HOSTCC    host/buildvm_asm.o
+HOSTCC    host/buildvm_peobj.o
+HOSTCC    host/buildvm_lib.o
+HOSTCC    host/buildvm_fold.o
+CC        lj_gc.o
+CC        lj_char.o
+CC        lj_obj.o
+CC        lj_buf.o
+CC        lj_str.o
+CC        lj_tab.o
+CC        lj_func.o
+CC        lj_udata.o
+CC        lj_meta.o
+CC        lj_debug.o
+CC        lj_state.o
+CC        lj_vmevent.o
+CC        lj_vmmath.o
+CC        lj_strscan.o
+CC        lj_strfmt.o
+CC        lj_api.o
+CC        lj_profile.o
+CC        lj_lex.o
+CC        lj_parse.o
+CC        lj_bcread.o
+CC        lj_bcwrite.o
+CC        lj_load.o
+CC        lj_ir.o
+CC        lj_opt_mem.o
+CC        lj_opt_narrow.o
+CC        lj_opt_dce.o
+CC        lj_opt_loop.o
+CC        lj_opt_split.o
+CC        lj_opt_sink.o
+CC        lj_mcode.o
+CC        lj_snap.o
+CC        lj_asm.o
+CC        lj_trace.o
+CC        lj_gdbjit.o
+CC        lj_ctype.o
+CC        lj_cdata.o
+CC        lj_cconv.o
+CC        lj_ccall.o
+CC        lj_ccallback.o
+CC        lj_carith.o
+CC        lj_clib.o
+CC        lj_cparse.o
+CC        lj_lib.o
+CC        lj_alloc.o
+CC        lib_aux.o
+CC        lib_package.o
+CC        lib_init.o
+CC        luajit.o
+HOSTLINK  host/minilua
+DYNASM    host/buildvm_arch.h
+HOSTCC    host/buildvm.o
+HOSTLINK  host/buildvm
+BUILDVM   lj_vm.s
+BUILDVM   lj_ffdef.h
+BUILDVM   lj_bcdef.h
+CC        lj_record.o
+BUILDVM   lj_folddef.h
+CC        lj_crecord.o
+BUILDVM   lj_recdef.h
+BUILDVM   lj_libdef.h
+BUILDVM   jit/vmdef.lua
+ASM       lj_vm.o
+CC        lj_err.o
+CC        lj_bc.o
+CC        lj_dispatch.o
+CC        lj_ffrecord.o
+CC        lib_base.o
+CC        lib_math.o
+CC        lib_bit.o
+CC        lib_string.o
+CC        lib_table.o
+CC        lib_io.o
+CC        lib_os.o
+CC        lib_debug.o
+CC        lib_jit.o
+CC        lib_ffi.o
+CC        lj_opt_fold.o
+AR        libluajit.a
+DYNLINK   libluajit.so
+LINK      luajit
+OK        Successfully built LuaJIT
+make[1]: Leaving directory `/root/MoonGen/deps/luajit/src'
+==== Successfully built LuaJIT 2.1.0-alpha ====
+==== Installing LuaJIT 2.1.0-alpha to /usr/local ====
+mkdir -p /root/MoonGen/deps/luajit/usr/local/bin /root/MoonGen/deps/luajit/usr/local/lib /root/MoonGen/deps/luajit/usr/local/include/luajit-2.1 /root/MoonGen/deps/luajit/usr/local/share/man/man1 /root/MoonGen/deps/luajit/usr/local/lib/pkgconfig /root/MoonGen/deps/luajit/usr/local/share/luajit-2.1.0-alpha/jit /root/MoonGen/deps/luajit/usr/local/share/lua/5.1 /root/MoonGen/deps/luajit/usr/local/lib/lua/5.1
+cd src && install -m 0755 luajit /root/MoonGen/deps/luajit/usr/local/bin/luajit-2.1.0-alpha
+cd src && test -f libluajit.a && install -m 0644 libluajit.a /root/MoonGen/deps/luajit/usr/local/lib/libluajit-5.1.a || :
+rm -f /root/MoonGen/deps/luajit/usr/local/lib/libluajit-5.1.so.2.1.0 /root/MoonGen/deps/luajit/usr/local/lib/libluajit-5.1.so /root/MoonGen/deps/luajit/usr/local/lib/libluajit-5.1.so
+cd src && test -f libluajit.so && \
+	  install -m 0755 libluajit.so /root/MoonGen/deps/luajit/usr/local/lib/libluajit-5.1.so.2.1.0 && \
+	  ldconfig -n /root/MoonGen/deps/luajit/usr/local/lib && \
+	  ln -sf libluajit-5.1.so.2.1.0 /root/MoonGen/deps/luajit/usr/local/lib/libluajit-5.1.so && \
+	  ln -sf libluajit-5.1.so.2.1.0 /root/MoonGen/deps/luajit/usr/local/lib/libluajit-5.1.so || :
+cd etc && install -m 0644 luajit.1 /root/MoonGen/deps/luajit/usr/local/share/man/man1
+cd etc && sed -e "s|^prefix=.*|prefix=/usr/local|" -e "s|^multilib=.*|multilib=lib|" luajit.pc > luajit.pc.tmp && \
+	  install -m 0644 luajit.pc.tmp /root/MoonGen/deps/luajit/usr/local/lib/pkgconfig/luajit.pc && \
+	  rm -f luajit.pc.tmp
+cd src && install -m 0644 lua.h lualib.h lauxlib.h luaconf.h lua.hpp luajit.h /root/MoonGen/deps/luajit/usr/local/include/luajit-2.1
+cd src/jit && install -m 0644 bc.lua bcsave.lua dump.lua p.lua v.lua zone.lua dis_x86.lua dis_x64.lua dis_arm.lua dis_ppc.lua dis_mips.lua dis_mipsel.lua vmdef.lua /root/MoonGen/deps/luajit/usr/local/share/luajit-2.1.0-alpha/jit
+==== Successfully installed LuaJIT 2.1.0-alpha to /usr/local ====
+
+Note: the development releases deliberately do NOT install a symlink for luajit
+You can do this now by running this command (with sudo):
+
+  ln -sf luajit-2.1.0-alpha /root/MoonGen/deps/luajit/usr/local/bin/luajit
+
+================== Installing x86_64-native-linuxapp-gcc
+Configuration done
+== Build scripts
+== Build lib
+== Build scripts/testhost
+== Build lib/librte_eal
+== Build lib/librte_net
+  SYMLINK-FILE include/rte_ip.h
+  SYMLINK-FILE include/rte_tcp.h
+  SYMLINK-FILE include/rte_udp.h
+== Build lib/librte_eal/common
+  SYMLINK-FILE include/rte_sctp.h
+  HOSTCC testhost.o
+  SYMLINK-FILE include/rte_icmp.h
+  SYMLINK-FILE include/rte_arp.h
+  HOSTLD testhost
+  SYMLINK-FILE include/rte_atomic.h
+  SYMLINK-FILE include/rte_branch_prediction.h
+  SYMLINK-FILE include/rte_byteorder.h
+  SYMLINK-FILE include/rte_common.h
+  SYMLINK-FILE include/rte_cycles.h
+  SYMLINK-FILE include/rte_debug.h
+  SYMLINK-FILE include/rte_eal.h
+  SYMLINK-FILE include/rte_errno.h
+  INSTALL-HOSTAPP testhost
+  SYMLINK-FILE include/rte_launch.h
+  SYMLINK-FILE include/rte_lcore.h
+  SYMLINK-FILE include/rte_log.h
+  SYMLINK-FILE include/rte_memcpy.h
+  SYMLINK-FILE include/rte_memory.h
+  SYMLINK-FILE include/rte_memzone.h
+  SYMLINK-FILE include/rte_pci.h
+  SYMLINK-FILE include/rte_pci_dev_ids.h
+  SYMLINK-FILE include/rte_per_lcore.h
+  SYMLINK-FILE include/rte_prefetch.h
+  SYMLINK-FILE include/rte_random.h
+  SYMLINK-FILE include/rte_rwlock.h
+  SYMLINK-FILE include/rte_spinlock.h
+  SYMLINK-FILE include/rte_tailq.h
+  SYMLINK-FILE include/rte_interrupts.h
+  SYMLINK-FILE include/rte_alarm.h
+  SYMLINK-FILE include/rte_string_fns.h
+  SYMLINK-FILE include/rte_version.h
+  SYMLINK-FILE include/rte_cpuflags.h
+  SYMLINK-FILE include/rte_eal_memconfig.h
+  SYMLINK-FILE include/rte_tailq_elem.h
+  SYMLINK-FILE include/rte_malloc_heap.h
+  SYMLINK-FILE include/rte_hexdump.h
+  SYMLINK-FILE include/rte_devargs.h
+  SYMLINK-FILE include/rte_dev.h
+  SYMLINK-FILE include/rte_common_vect.h
+  SYMLINK-FILE include/rte_pci_dev_feature_defs.h
+  SYMLINK-FILE include/rte_pci_dev_features.h
+  SYMLINK-FILE include/arch/rte_atomic.h
+== Build lib/librte_eal/linuxapp
+== Build lib/librte_eal/linuxapp/igb_uio
+== Build lib/librte_eal/linuxapp/eal
+  CC eal.o
+  CC eal_hugepage_info.o
+  CC eal_memory.o
+  CC eal_thread.o
+  CC eal_log.o
+  CC eal_pci.o
+  CC eal_pci_uio.o
+  CC eal_pci_vfio.o
+  CC eal_pci_vfio_mp_sync.o
+  CC eal_debug.o
+  CC eal_lcore.o
+  CC eal_timer.o
+  CC eal_interrupts.o
+  CC eal_alarm.o
+  CC eal_common_memzone.o
+  CC eal_common_launch.o
+  CC eal_common_log.o
+  CC eal_common_pci.o
+  CC eal_common_memory.o
+  CC eal_common_tailqs.o
+  CC eal_common_errno.o
+  CC eal_common_cpuflags.o
+  CC eal_common_string_fns.o
+  CC eal_common_hexdump.o
+  LD      /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/igb_uio/built-in.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/igb_uio/igb_uio.o
+  CC eal_common_devargs.o
+  SYMLINK-FILE include/exec-env/rte_per_lcore.h
+  CC eal_common_dev.o
+  SYMLINK-FILE include/exec-env/rte_lcore.h
+  SYMLINK-FILE include/exec-env/rte_interrupts.h
+  SYMLINK-FILE include/exec-env/rte_kni_common.h
+  SYMLINK-FILE include/exec-env/rte_dom0_common.h
+  AR librte_eal.a
+  INSTALL-LIB librte_eal.a
+== Build lib/librte_eal/linuxapp/kni
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/igb_uio/igb_uio.mod.o
+  LD      /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/built-in.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/ixgbe_main.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/ixgbe_api.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/ixgbe_common.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/ixgbe_ethtool.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/ixgbe_82599.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/ixgbe_82598.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/ixgbe_x540.o
+  LD [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/igb_uio/igb_uio.ko
+INSTALL-MODULE igb_uio.ko
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/ixgbe_phy.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/kcompat.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/e1000_82575.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/e1000_i210.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/e1000_api.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/e1000_mac.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/e1000_manage.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/e1000_mbx.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/e1000_nvm.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/e1000_phy.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/igb_ethtool.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/igb_hwmon.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/igb_main.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/igb_debugfs.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/igb_param.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/igb_procfs.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/igb_vmdq.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/kni_misc.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/kni_net.o
+  CC [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/kni_ethtool.o
+  LD [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/rte_kni.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/rte_kni.mod.o
+  LD [M]  /root/MoonGen/deps/dpdk/x86_64-native-linuxapp-gcc/build/lib/librte_eal/linuxapp/kni/rte_kni.ko
+INSTALL-MODULE rte_kni.ko
+== Build lib/librte_malloc
+== Build lib/librte_timer
+== Build lib/librte_cfgfile
+== Build lib/librte_cmdline
+== Build lib/librte_kvargs
+== Build lib/librte_power
+== Build lib/librte_meter
+  SYMLINK-FILE include/rte_cfgfile.h
+  CC rte_cfgfile.o
+  CC rte_malloc.o
+  CC rte_timer.o
+  CC rte_kvargs.o
+  CC rte_power.o
+  CC cmdline.o
+  CC malloc_elem.o
+  CC rte_meter.o
+  AR librte_cfgfile.a
+  SYMLINK-FILE include/rte_meter.h
+  INSTALL-LIB librte_cfgfile.a
+  AR librte_meter.a
+  INSTALL-LIB librte_meter.a
+  CC cmdline_cirbuf.o
+  CC malloc_heap.o
+  SYMLINK-FILE include/rte_malloc.h
+  SYMLINK-FILE include/rte_kvargs.h
+  CC cmdline_parse.o
+  AR librte_kvargs.a
+  SYMLINK-FILE include/rte_timer.h
+  CC cmdline_parse_etheraddr.o
+  INSTALL-LIB librte_kvargs.a
+  AR librte_timer.a
+  INSTALL-LIB librte_timer.a
+  CC cmdline_parse_ipaddr.o
+  CC cmdline_parse_num.o
+  CC cmdline_parse_string.o
+  SYMLINK-FILE include/rte_power.h
+  AR librte_power.a
+  INSTALL-LIB librte_power.a
+  CC cmdline_rdline.o
+  CC cmdline_vt100.o
+  CC cmdline_socket.o
+  AR librte_malloc.a
+  INSTALL-LIB librte_malloc.a
+  SYMLINK-FILE include/cmdline.h
+  CC cmdline_parse_portlist.o
+  SYMLINK-FILE include/cmdline_parse.h
+  SYMLINK-FILE include/cmdline_parse_num.h
+  SYMLINK-FILE include/cmdline_parse_ipaddr.h
+== Build lib/librte_hash
+  SYMLINK-FILE include/cmdline_parse_etheraddr.h
+== Build lib/librte_lpm
+  SYMLINK-FILE include/cmdline_parse_string.h
+  SYMLINK-FILE include/cmdline_rdline.h
+== Build lib/librte_ring
+  SYMLINK-FILE include/cmdline_vt100.h
+== Build lib/librte_acl
+  SYMLINK-FILE include/cmdline_socket.h
+  SYMLINK-FILE include/cmdline_cirbuf.h
+  SYMLINK-FILE include/cmdline_parse_portlist.h
+  SYMLINK-FILE include/rte_hash.h
+  CC rte_hash.o
+  CC rte_fbk_hash.o
+  SYMLINK-FILE include/rte_hash_crc.h
+  SYMLINK-FILE include/rte_jhash.h
+  SYMLINK-FILE include/rte_fbk_hash.h
+  CC rte_ring.o
+  CC tb_mem.o
+  CC rte_acl.o
+  SYMLINK-FILE include/rte_ring.h
+  CC acl_bld.o
+  CC rte_lpm.o
+  AR librte_cmdline.a
+  INSTALL-LIB librte_cmdline.a
+  CC rte_lpm6.o
+  CC acl_gen.o
+  CC acl_run_scalar.o
+  AR librte_ring.a
+  AR librte_hash.a
+  INSTALL-LIB librte_ring.a
+  INSTALL-LIB librte_hash.a
+  CC acl_run_sse.o
+  SYMLINK-FILE include/rte_acl_osdep.h
+== Build lib/librte_mempool
+  SYMLINK-FILE include/rte_acl.h
+  SYMLINK-FILE include/rte_lpm.h
+  SYMLINK-FILE include/rte_lpm6.h
+  SYMLINK-FILE include/rte_mempool.h
+  CC rte_mempool.o
+  AR librte_lpm.a
+  INSTALL-LIB librte_lpm.a
+  AR librte_mempool.a
+  INSTALL-LIB librte_mempool.a
+== Build lib/librte_mbuf
+  SYMLINK-FILE include/rte_mbuf.h
+  CC rte_mbuf.o
+  AR librte_mbuf.a
+  INSTALL-LIB librte_mbuf.a
+== Build lib/librte_ether
+== Build lib/librte_sched
+== Build lib/librte_distributor
+  SYMLINK-FILE include/rte_ether.h
+  SYMLINK-FILE include/rte_ethdev.h
+  CC rte_ethdev.o
+  CC rte_sched.o
+  CC rte_red.o
+  SYMLINK-FILE include/rte_sched.h
+  CC rte_approx.o
+  SYMLINK-FILE include/rte_bitmap.h
+  SYMLINK-FILE include/rte_sched_common.h
+  SYMLINK-FILE include/rte_red.h
+  SYMLINK-FILE include/rte_approx.h
+  SYMLINK-FILE include/rte_distributor.h
+  CC rte_distributor.o
+  AR librte_distributor.a
+  INSTALL-LIB librte_distributor.a
+  AR librte_acl.a
+  INSTALL-LIB librte_acl.a
+  AR libethdev.a
+  INSTALL-LIB libethdev.a
+== Build lib/librte_pmd_ixgbe
+== Build lib/librte_pmd_bond
+== Build lib/librte_pmd_ring
+== Build lib/librte_pmd_i40e
+== Build lib/librte_pmd_virtio
+== Build lib/librte_pmd_vmxnet3
+== Build lib/librte_pmd_e1000
+  CC i40e_adminq.o
+  CC rte_eth_bond_api.o
+  CC virtqueue.o
+  CC e1000_80003es2lan.o
+  CC vmxnet3_rxtx.o
+  CC rte_eth_ring.o
+  CC ixgbe_common.o
+  AR librte_sched.a
+  INSTALL-LIB librte_sched.a
+  CC vmxnet3_ethdev.o
+  CC virtio_pci.o
+  CC virtio_rxtx.o
+  CC rte_eth_bond_pmd.o
+  CC virtio_ethdev.o
+  CC e1000_82540.o
+  CC i40e_common.o
+  SYMLINK-FILE include/rte_eth_ring.h
+  CC e1000_82541.o
+  AR librte_pmd_ring.a
+  INSTALL-LIB librte_pmd_ring.a
+  CC i40e_diag.o
+  CC rte_eth_bond_args.o
+  CC e1000_82542.o
+  CC e1000_82543.o
+  CC i40e_hmc.o
+  SYMLINK-FILE include/rte_eth_bond.h
+  CC i40e_lan_hmc.o
+  AR librte_pmd_bond.a
+  INSTALL-LIB librte_pmd_bond.a
+  CC i40e_nvm.o
+  CC ixgbe_82598.o
+  AR librte_pmd_virtio_uio.a
+  INSTALL-LIB librte_pmd_virtio_uio.a
+  CC ixgbe_82599.o
+  CC ixgbe_x540.o
+  CC i40e_dcb.o
+  CC e1000_82571.o
+  AR librte_pmd_vmxnet3_uio.a
+  INSTALL-LIB librte_pmd_vmxnet3_uio.a
+  CC ixgbe_phy.o
+  CC ixgbe_api.o
+  CC i40e_ethdev.o
+  CC ixgbe_vf.o
+  CC i40e_rxtx.o
+  CC i40e_ethdev_vf.o
+  CC e1000_82575.o
+  CC i40e_pf.o
+  CC ixgbe_dcb.o
+  CC ixgbe_dcb_82599.o
+  CC ixgbe_dcb_82598.o
+  CC ixgbe_mbx.o
+== Build lib/librte_ip_frag
+  CC ixgbe_rxtx.o
+  CC ixgbe_ethdev.o
+  CC ixgbe_fdir.o
+  CC ixgbe_pf.o
+  CC rte_ipv4_fragmentation.o
+  CC e1000_i210.o
+  CC rte_ipv4_reassembly.o
+  CC rte_ipv6_fragmentation.o
+  CC e1000_api.o
+  CC e1000_ich8lan.o
+  CC ixgbe_rxtx_vec.o
+== Build lib/librte_kni
+  CC e1000_mac.o
+  CC rte_ipv6_reassembly.o
+  CC rte_kni.o
+  CC rte_ip_frag_common.o
+  AR librte_pmd_i40e.a
+  INSTALL-LIB librte_pmd_i40e.a
+  CC ip_frag_internal.o
+  SYMLINK-FILE include/rte_ip_frag.h
+  CC e1000_manage.o
+  SYMLINK-FILE include/rte_kni.h
+  AR librte_ip_frag.a
+  AR librte_kni.a
+  INSTALL-LIB librte_ip_frag.a
+  INSTALL-LIB librte_kni.a
+== Build lib/librte_port
+  CC e1000_mbx.o
+  CC e1000_nvm.o
+  CC e1000_osdep.o
+  CC e1000_phy.o
+  CC e1000_vf.o
+  CC igb_ethdev.o
+  CC igb_rxtx.o
+  CC rte_port_ethdev.o
+  CC igb_pf.o
+  CC em_ethdev.o
+  CC em_rxtx.o
+  CC rte_port_ring.o
+  CC rte_port_frag.o
+  CC rte_port_ras.o
+  CC rte_port_sched.o
+  CC rte_port_source_sink.o
+  AR librte_pmd_ixgbe.a
+  INSTALL-LIB librte_pmd_ixgbe.a
+  SYMLINK-FILE include/rte_port.h
+  SYMLINK-FILE include/rte_port_ethdev.h
+  SYMLINK-FILE include/rte_port_ring.h
+  SYMLINK-FILE include/rte_port_frag.h
+  SYMLINK-FILE include/rte_port_ras.h
+  SYMLINK-FILE include/rte_port_sched.h
+  SYMLINK-FILE include/rte_port_source_sink.h
+  AR librte_port.a
+  INSTALL-LIB librte_port.a
+== Build lib/librte_table
+  CC rte_table_lpm.o
+  CC rte_table_lpm_ipv6.o
+  CC rte_table_acl.o
+  CC rte_table_hash_key8.o
+  CC rte_table_hash_key16.o
+  CC rte_table_hash_key32.o
+  CC rte_table_hash_ext.o
+  CC rte_table_hash_lru.o
+  CC rte_table_array.o
+  CC rte_table_stub.o
+  AR librte_pmd_e1000.a
+  INSTALL-LIB librte_pmd_e1000.a
+  SYMLINK-FILE include/rte_table.h
+  SYMLINK-FILE include/rte_table_lpm.h
+  SYMLINK-FILE include/rte_table_lpm_ipv6.h
+  SYMLINK-FILE include/rte_table_acl.h
+  SYMLINK-FILE include/rte_table_hash.h
+  SYMLINK-FILE include/rte_lru.h
+  SYMLINK-FILE include/rte_table_array.h
+  SYMLINK-FILE include/rte_table_stub.h
+  AR librte_table.a
+  INSTALL-LIB librte_table.a
+== Build lib/librte_pipeline
+  SYMLINK-FILE include/rte_pipeline.h
+  CC rte_pipeline.o
+  AR librte_pipeline.a
+  INSTALL-LIB librte_pipeline.a
+== Build app
+== Build app/test
+== Build app/test-acl
+== Build app/test-pipeline
+== Build app/test-pmd
+== Build app/cmdline_test
+== Build app/dump_cfg
+  CC cmdline_test.o
+  CC commands.o
+  CC testpmd.o
+  CC main.o
+  CC main.o
+  CC main.o
+  CC config.o
+  CC commands.o
+  CC test.o
+  LD cmdline_test
+  LD dump_cfg
+  CC test_pci.o
+  CC init.o
+  INSTALL-APP cmdline_test
+  LD testacl
+  INSTALL-MAP cmdline_test.map
+  CC test_prefetch.o
+  CC parameters.o
+  CC test_byteorder.o
+  INSTALL-APP dump_cfg
+  INSTALL-MAP dump_cfg.map
+  CC test_per_lcore.o
+  CC test_atomic.o
+  CC test_malloc.o
+  CC runtime.o
+  CC test_cycles.o
+  INSTALL-APP testacl
+  INSTALL-MAP testacl.map
+  CC test_spinlock.o
+  CC pipeline_stub.o
+  CC test_memory.o
+  CC pipeline_hash.o
+  CC cmdline.o
+  CC pipeline_lpm.o
+  CC config.o
+  CC pipeline_lpm_ipv6.o
+  CC pipeline_acl.o
+  CC iofwd.o
+  CC test_memzone.o
+  CC test_ring.o
+  CC macfwd.o
+  CC test_ring_perf.o
+  LD testpipeline
+  CC test_table.o
+  INSTALL-APP testpipeline
+  CC macfwd-retry.o
+  INSTALL-MAP testpipeline.map
+  CC macswap.o
+  CC test_table_pipeline.o
+  CC flowgen.o
+  CC rxonly.o
+  CC txonly.o
+  CC csumonly.o
+  CC icmpecho.o
+  CC test_table_tables.o
+  CC ieee1588fwd.o
+  CC mempool_anon.o
+  CC test_table_ports.o
+  CC test_table_combined.o
+  CC test_rwlock.o
+  CC test_table_acl.o
+  CC test_timer.o
+  LD testpmd
+  CC test_timer_perf.o
+  INSTALL-APP testpmd
+  INSTALL-MAP testpmd.map
+  CC test_mempool.o
+  CC test_mempool_perf.o
+  CC test_mbuf.o
+  CC test_logs.o
+  CC test_memcpy.o
+  CC test_memcpy_perf.o
+  CC test_hash.o
+  CC test_hash_perf.o
+  CC test_lpm.o
+  CC test_lpm6.o
+  CC test_debug.o
+  CC test_errno.o
+  CC test_tailq.o
+  CC test_string_fns.o
+  CC test_cpuflags.o
+  CC test_mp_secondary.o
+  CC test_eal_flags.o
+  CC test_eal_fs.o
+  CC test_alarm.o
+  CC test_interrupts.o
+  CC test_version.o
+  CC test_func_reentrancy.o
+  CC test_cmdline.o
+  CC test_cmdline_num.o
+  CC test_cmdline_etheraddr.o
+  CC test_cmdline_portlist.o
+  CC test_cmdline_ipaddr.o
+  CC test_cmdline_cirbuf.o
+  CC test_cmdline_string.o
+  CC test_cmdline_lib.o
+  CC test_red.o
+  CC test_sched.o
+  CC test_meter.o
+  CC test_kni.o
+  CC test_power.o
+  CC test_common.o
+  CC test_distributor.o
+  CC test_distributor_perf.o
+  CC test_devargs.o
+  CC virtual_pmd.o
+  CC packet_burst_generator.o
+  CC test_acl.o
+  CC test_link_bonding.o
+  CC test_pmd_ring.o
+  CC test_kvargs.o
+  LD test
+  INSTALL-APP test
+  INSTALL-MAP test.map
+Build complete
+-- The C compiler identification is GNU 4.7.2
+-- The CXX compiler identification is GNU 4.7.2
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /root/MoonGen/build
+Scanning dependencies of target MoonGen
+[ 14%] Building C object CMakeFiles/MoonGen.dir/src/main.c.o
+[ 28%] Building C object CMakeFiles/MoonGen.dir/src/memory.c.o
+[ 42%] Building C object CMakeFiles/MoonGen.dir/src/task.c.o
+[ 57%] Building C object CMakeFiles/MoonGen.dir/src/device.c.o
+[ 71%] Building C object CMakeFiles/MoonGen.dir/src/util.c.o
+[ 85%] Building C object CMakeFiles/MoonGen.dir/src/lifecycle.c.o
+[100%] Building C object CMakeFiles/MoonGen.dir/src/timestamping.c.o
+Linking C executable MoonGen
+[100%] Built target MoonGen
+MoonGen built
+MoonGen installed
+ * Stopping NTP server: ntpd.
+ntpd: time slew +0.002009s
+----------------------------------------------
+Wed Jan 28 09:24:12 CET 2015 Test run 0 Kbps started
+----------------------------------------------
+Wed Jan 28 09:25:51 CET 2015 Test run 10 Kbps started
+Wed Jan 28 09:27:39 CET 2015 Stopping load gen
+Moongen PID: 17635
+/usr/bin/testbed-kill: line 12: kill: (17635) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  115k    0   133  100  115k    587   511k --:--:-- --:--:-- --:--:--  514k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-1-10.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:27:40 CET 2015 Test run 50 Kbps started
+Wed Jan 28 09:29:28 CET 2015 Stopping load gen
+Moongen PID: 18611
+/usr/bin/testbed-kill: line 12: kill: (18611) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 47551    0   133  100 47418    593   206k --:--:-- --:--:-- --:--:--  207k100 47551    0   133  100 47418    589   205k --:--:-- --:--:-- --:--:--  206k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-2-50.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:29:29 CET 2015 Test run 90 Kbps started
+Wed Jan 28 09:31:16 CET 2015 Stopping load gen
+Moongen PID: 19575
+/usr/bin/testbed-kill: line 12: kill: (19575) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 55703    0   133  100 55570    580   236k --:--:-- --:--:-- --:--:--  239k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-3-90.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:31:18 CET 2015 Test run 130 Kbps started
+Wed Jan 28 09:33:05 CET 2015 Stopping load gen
+Moongen PID: 20632
+/usr/bin/testbed-kill: line 12: kill: (20632) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 34215    0   134  100 34081    607   150k --:--:-- --:--:-- --:--:--  152k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-4-130.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:33:06 CET 2015 Test run 170 Kbps started
+Wed Jan 28 09:34:54 CET 2015 Stopping load gen
+Moongen PID: 21406
+/usr/bin/testbed-kill: line 12: kill: (21406) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 36522    0   134  100 36388    607   161k --:--:-- --:--:-- --:--:--  162k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-5-170.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:34:55 CET 2015 Test run 210 Kbps started
+Wed Jan 28 09:36:43 CET 2015 Stopping load gen
+Moongen PID: 22264
+/usr/bin/testbed-kill: line 12: kill: (22264) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 33229    0   134  100 33095    584   141k --:--:-- --:--:-- --:--:--  142k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-6-210.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:36:44 CET 2015 Test run 250 Kbps started
+Wed Jan 28 09:38:32 CET 2015 Stopping load gen
+Moongen PID: 23313
+/usr/bin/testbed-kill: line 12: kill: (23313) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 25526    0   134  100 25392    586   108k --:--:-- --:--:-- --:--:--  109k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-7-250.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:38:33 CET 2015 Test run 290 Kbps started
+Wed Jan 28 09:40:21 CET 2015 Stopping load gen
+Moongen PID: 23940
+/usr/bin/testbed-kill: line 12: kill: (23940) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 25689    0   134  100 25555    579   107k --:--:-- --:--:-- --:--:--  108k100 25689    0   134  100 25555    576   107k --:--:-- --:--:-- --:--:--  108k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-8-290.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:40:22 CET 2015 Test run 330 Kbps started
+Wed Jan 28 09:42:10 CET 2015 Stopping load gen
+Moongen PID: 25104
+/usr/bin/testbed-kill: line 12: kill: (25104) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 23949    0   134  100 23815    555  98684 --:--:-- --:--:-- --:--:-- 99229100 23949    0   134  100 23815    552  98141 --:--:-- --:--:-- --:--:-- 98409
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-9-330.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:42:11 CET 2015 Test run 370 Kbps started
+Wed Jan 28 09:43:59 CET 2015 Stopping load gen
+Moongen PID: 26152
+/usr/bin/testbed-kill: line 12: kill: (26152) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 23851    0   135  100 23716    622   106k --:--:-- --:--:-- --:--:--  107k100 23851    0   135  100 23716    619   106k --:--:-- --:--:-- --:--:--  106k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-10-370.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:44:00 CET 2015 Test run 410 Kbps started
+Wed Jan 28 09:45:48 CET 2015 Stopping load gen
+Moongen PID: 27143
+/usr/bin/testbed-kill: line 12: kill: (27143) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 23777    0   135  100 23642    603   103k --:--:-- --:--:-- --:--:--  103k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-11-410.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:45:49 CET 2015 Test run 450 Kbps started
+Wed Jan 28 09:47:37 CET 2015 Stopping load gen
+Moongen PID: 28172
+/usr/bin/testbed-kill: line 12: kill: (28172) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 23939    0   135  100 23804    574    99k --:--:-- --:--:-- --:--:--   99k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-12-450.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:47:38 CET 2015 Test run 490 Kbps started
+Wed Jan 28 09:49:26 CET 2015 Stopping load gen
+Moongen PID: 29394
+/usr/bin/testbed-kill: line 12: kill: (29394) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 24276    0   135  100 24141    586   102k --:--:-- --:--:-- --:--:--  103k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-13-490.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:49:27 CET 2015 Test run 530 Kbps started
+Wed Jan 28 09:51:15 CET 2015 Stopping load gen
+Moongen PID: 30471
+/usr/bin/testbed-kill: line 12: kill: (30471) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 24513    0   135  100 24378    585   103k --:--:-- --:--:-- --:--:--  104k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-14-530.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:51:17 CET 2015 Test run 570 Kbps started
+Wed Jan 28 09:53:09 CET 2015 Stopping load gen
+Moongen PID: 31319
+/usr/bin/testbed-kill: line 12: kill: (31319) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 25158    0   135  100 25023    607   109k --:--:-- --:--:-- --:--:--  111k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-15-570.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:53:10 CET 2015 Test run 610 Kbps started
+Wed Jan 28 09:54:54 CET 2015 Stopping load gen
+Moongen PID: 32091
+/usr/bin/testbed-kill: line 12: kill: (32091) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 24715    0   135  100 24580    591   105k --:--:-- --:--:-- --:--:--  106k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-16-610.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:54:56 CET 2015 Test run 650 Kbps started
+Wed Jan 28 09:56:40 CET 2015 Stopping load gen
+Moongen PID: 579
+/usr/bin/testbed-kill: line 12: kill: (579) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 25095    0   135  100 24960    602   108k --:--:-- --:--:-- --:--:--  109k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-17-650.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:56:41 CET 2015 Test run 690 Kbps started
+Wed Jan 28 09:58:28 CET 2015 Stopping load gen
+Moongen PID: 1634
+/usr/bin/testbed-kill: line 12: kill: (1634) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 25670    0   135  100 25535    606   112k --:--:-- --:--:-- --:--:--  113k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-18-690.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 09:58:29 CET 2015 Test run 730 Kbps started
+Wed Jan 28 10:00:12 CET 2015 Stopping load gen
+Moongen PID: 2752
+/usr/bin/testbed-kill: line 12: kill: (2752) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 25587    0   135  100 25452    584   107k --:--:-- --:--:-- --:--:--  108k100 25587    0   135  100 25452    582   107k --:--:-- --:--:-- --:--:--  107k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-19-730.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 10:00:13 CET 2015 Test run 770 Kbps started
+Wed Jan 28 10:02:02 CET 2015 Stopping load gen
+Moongen PID: 3809
+/usr/bin/testbed-kill: line 12: kill: (3809) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 26997    0   135  100 26862    576   111k --:--:-- --:--:-- --:--:--  113k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-20-770.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 10:02:03 CET 2015 Test run 810 Kbps started
+Wed Jan 28 10:03:52 CET 2015 Stopping load gen
+Moongen PID: 4632
+/usr/bin/testbed-kill: line 12: kill: (4632) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 27860    0   135  100 27725    574   115k --:--:-- --:--:-- --:--:--  116k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-21-810.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 10:03:54 CET 2015 Test run 850 Kbps started
+Wed Jan 28 10:05:39 CET 2015 Stopping load gen
+Moongen PID: 5770
+/usr/bin/testbed-kill: line 12: kill: (5770) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 28483    0   135  100 28348    587   120k --:--:-- --:--:-- --:--:--  121k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-22-850.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 10:05:41 CET 2015 Test run 890 Kbps started
+Wed Jan 28 10:07:31 CET 2015 Stopping load gen
+Moongen PID: 6595
+/usr/bin/testbed-kill: line 12: kill: (6595) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 30540    0   135  100 30405    563   124k --:--:-- --:--:-- --:--:--  125k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-23-890.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 10:07:32 CET 2015 Test run 930 Kbps started
+Wed Jan 28 10:09:20 CET 2015 Stopping load gen
+Moongen PID: 7622
+/usr/bin/testbed-kill: line 12: kill: (7622) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 32980    0   135  100 32845    595   141k --:--:-- --:--:-- --:--:--  142k100 32980    0   135  100 32845    593   141k --:--:-- --:--:-- --:--:--  141k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-24-930.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 10:09:21 CET 2015 Test run 970 Kbps started
+Wed Jan 28 10:11:11 CET 2015 Stopping load gen
+Moongen PID: 8738
+/usr/bin/testbed-kill: line 12: kill: (8738) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 36183    0   135  100 36048    589   153k --:--:-- --:--:-- --:--:--  155k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-25-970.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 10:11:12 CET 2015 Test run 1010 Kbps started
+Wed Jan 28 10:13:05 CET 2015 Stopping load gen
+Moongen PID: 9700
+/usr/bin/testbed-kill: line 12: kill: (9700) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 37927    0   136  100 37791    597   162k --:--:-- --:--:-- --:--:--  163k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-26-1010.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 10:13:06 CET 2015 Test run 1050 Kbps started
+Wed Jan 28 10:14:54 CET 2015 Stopping load gen
+Moongen PID: 10734
+/usr/bin/testbed-kill: line 12: kill: (10734) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  220k    0   136  100  220k    575   934k --:--:-- --:--:-- --:--:--  943k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-27-1050.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 10:14:55 CET 2015 Test run 1090 Kbps started
+Wed Jan 28 10:16:43 CET 2015 Stopping load gen
+Moongen PID: 11732
+/usr/bin/testbed-kill: line 12: kill: (11732) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 80986    0   136  100 80850    600   348k --:--:-- --:--:-- --:--:--  352k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-28-1090.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 10:16:44 CET 2015 Test run 1130 Kbps started
+Wed Jan 28 10:18:32 CET 2015 Stopping load gen
+Moongen PID: 12772
+/usr/bin/testbed-kill: line 12: kill: (12772) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 78052    0   136  100 77916    587   328k --:--:-- --:--:-- --:--:--  330k100 78052    0   136  100 77916    584   327k --:--:-- --:--:-- --:--:--  327k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-29-1130.txt" was uploaded successfully
+----------------------------------------------
+Wed Jan 28 10:18:33 CET 2015 Test run 1170 Kbps started
+Wed Jan 28 10:20:21 CET 2015 Stopping load gen
+Moongen PID: 13728
+/usr/bin/testbed-kill: line 12: kill: (13728) - No such process
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 68822    0   136  100 68686    595   293k --:--:-- --:--:-- --:--:--  295k100 68822    0   136  100 68686    592   292k --:--:-- --:--:-- --:--:--  294k
+The file "/srv/www/testbed/config/20150128_091801_exp-itr-ixgbe-stock-noitr/klaipeda/output-send-30-1170.txt" was uploaded successfully
+Done.
