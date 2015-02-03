@@ -23,6 +23,7 @@ loadgen_headers = ['TotalSent','TotalReceived','HistSample', 'Sent']
 datasets = {}
 
 nonempty = lambda s: s != ''
+digits = lambda d: d in ['0','1','2','3','4','5','6','7','8','9','.']
 
 for fname in args.files:
   namesplit = os.path.basename(fname)[:-4].split('-')
@@ -59,6 +60,29 @@ for fname in args.files:
         elif 'irq:irq_handler_entry' in split:
           row.update({'interrupts': split[0]})
       datasets[run]['perf'].append(row)
+    elif 'output-dmesg' in fname:
+      run = int(namesplit[1][5:])
+      if not run in datasets:
+        datasets.update({run: {}})
+      if not 'dmesg' in datasets[run]:
+        datasets[run].update({'dmesg': []})
+      for line in file:
+        split = list(filter(nonempty, line.split(' ')))
+        if len(split) == 18 and 'seen' in split:
+          row = {}
+          row.update({'packets': ''.join(filter(digits, split[10]))})
+          itr = int(split[17])
+          if 'bytes' in split:
+            if itr == 0:
+              itr = 100000
+            elif itr == 1:
+              itr = 20000
+            elif itr == 2:
+              itr = 8000
+            else:
+              continue
+          row.update({'itr': itr})
+          datasets[run]['dmesg'].append(row)
     else:
       print("Don't know what to do with file {}".format(fname))
 
@@ -76,7 +100,7 @@ uniq = lambda xs: filter(lambda x: x is not None, [xs[i] if i == 0 or xs[i-1] !=
 #print("#Offered Load (mpps)\tavg actual mpps sent\tRTT Lower 1.5% (us)\tRTT Lower Quartile (us)\tRTT Median (us)\tRTT Upper Quartile (us)\tRTT Upper 98.5% (us)\tAvg. CPU Load (cycles)\tCPU Load StdDev (cycles)\tInterrupts (kHz)")
 #print("x\tload_avg\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\tirq_avg\tirq_stderr")
 print("#Offered Load (mpps)\tavg actual mpps sent\tRTT Median (us)\tRTT 99th perc.\tAvg. CPU Load (cycles)\tCPU Load StdDev (cycles)\tInterrupts (kHz)")
-print("x\tload_avg\trtt2\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\tirq_avg\tirq_stderr")
+print("x\tload_avg\trtt2\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\tirq_avg\tirq_stderr\titr_avg\titr_stderr")
 
 last_load = 0
 
@@ -99,8 +123,13 @@ for run in runs:
   cycle_vals = [avg(cycles), numpy.std(cycles)]
 
   interrupts = list(map(irq_sel, datasets[run]['perf']))
-  itr = [avg(interrupts), numpy.std(interrupts)]
+  irq = [avg(interrupts), numpy.std(interrupts)]
 
+  itr_entries = [x['itr'] / 1000 if x['itr'] >= 8000 else 4000000 / x['itr'] / 1000 for x in datasets[run].get('dmesg',[])]
+  if len(itr_entries) > 1:
+    itr = [avg(itr_entries), numpy.std(itr_entries)]
+  else:
+    itr = ['nan','nan']
 
   delay_len = len(delays or [])
 
@@ -112,7 +141,7 @@ for run in runs:
 
   offered_load = datasets[run].get('loadgen',{}).get('offered_load',0)
 
-  print("{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(
+  print("{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(
     offered_load,
     sent_avg,
 #    delay_percs[0],delay_percs[1],delay_percs[2],delay_percs[3],delay_percs[4],
@@ -121,5 +150,6 @@ for run in runs:
     delay_len,
     totals, totalr,
     totalr/totals if totals > 0 else 0,
+    irq[0], irq[1],
     itr[0], itr[1]
     ))
