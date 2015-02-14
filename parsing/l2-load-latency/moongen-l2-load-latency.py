@@ -30,7 +30,11 @@ for fname in args.files:
   with open(fname) as file:
     if 'output-send' in fname:
       run = int(namesplit[2])
-      rows = {'offered_load': int(namesplit[3]) / (64*8)}
+      load = float(namesplit[3])
+      # convert load if appears to be in mbits
+      if load > 10:
+        load = load / (64*8)
+      rows = {'offered_load': load}
       for line in file:
         split = line.split(',')
         if split[0] in loadgen_headers:
