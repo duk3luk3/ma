@@ -6,6 +6,10 @@ from argparse import ArgumentParser, FileType
 import numpy
 import os
 
+def printline(*args):
+  fmt = "{}" + ((len(args)-1) * "{}\t")
+  print(fmt.format(*args))
+
 
 parser = ArgumentParser(description='Parse MoonGen l2-load-latency output')
 parser.add_argument('--no-outliers', dest='outliers', action='store_false',
@@ -32,7 +36,7 @@ for fname in args.files:
       run = int(namesplit[2])
       load = float(namesplit[3])
       # convert load if appears to be in mbits
-      if load > 10:
+      if load >= 10:
         load = load / (64*8)
       rows = {'offered_load': load}
       for line in file:
@@ -104,7 +108,7 @@ uniq = lambda xs: filter(lambda x: x is not None, [xs[i] if i == 0 or xs[i-1] !=
 #print("#Offered Load (mpps)\tavg actual mpps sent\tRTT Lower 1% (us)\tRTT Lower Quartile (us)\tRTT Median (us)\tRTT Upper Quartile (us)\tRTT Upper 99% (us)\tAvg. CPU Load (cycles)\tCPU Load StdDev (cycles)\tInterrupts (kHz)")
 #print("x\tload_avg\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\tirq_avg\tirq_stderr")
 print("#Offered Load (mpps)\tavg actual mpps sent\tRTT Median (us)\tRTT 99th perc.\tAvg. CPU Load (cycles)\tCPU Load StdDev (cycles)\tInterrupts (kHz)")
-print("x\tload_avg\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\tirq_avg\tirq_stderr\titr_avg\titr_stderr")
+print("x\tload_avg\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\tirq_avg\tirq_stderr\titr_avg\titr_stderr\tcycles_per_pkt")
 
 last_load = 0
 
@@ -116,8 +120,9 @@ for run in runs:
 
   sent_avg = avg([float(x['rate']) for x in datasets[run].get('loadgen',{}).get('Sent',[])])
 
+  skip = ""
   if sent_avg < last_load:
-    continue
+    skip = "#"
 
   last_load = sent_avg
 
@@ -140,12 +145,15 @@ for run in runs:
   totals = int(datasets[run].get('loadgen', {}).get('TotalSent',[{}])[0].get('packets',0))
   totalr = int(datasets[run].get('loadgen', {}).get('TotalReceived',[{}])[0].get('packets',0))
 
+  cycles_per_packet = 3.3 * cycle_vals[0] / sent_avg if sent_avg > 0 else 0
+
 
   #delay_outliers = list(filter(lambda x: x < delay_percs[0] or x > delay_percs[4],uniq(delays))) if delays else []
 
   offered_load = datasets[run].get('loadgen',{}).get('offered_load',0)
 
-  print("{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(
+  printline(
+    skip,
     offered_load,
     sent_avg,
     delay_percs[0],delay_percs[1],delay_percs[2],delay_percs[3],delay_percs[4],
@@ -155,5 +163,20 @@ for run in runs:
     totals, totalr,
     totalr/totals if totals > 0 else 0,
     irq[0], irq[1],
-    itr[0], itr[1]
-    ))
+    itr[0], itr[1],
+    cycles_per_packet
+    )
+
+#  print("{}{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(
+#    skip,
+#    offered_load,
+#    sent_avg,
+#    delay_percs[0],delay_percs[1],delay_percs[2],delay_percs[3],delay_percs[4],
+##    delay_percs[2],delay_percs[4],
+#    cycle_vals[0], cycle_vals[1],
+#    delay_len,
+#    totals, totalr,
+#    totalr/totals if totals > 0 else 0,
+#    irq[0], irq[1],
+#    itr[0], itr[1]
+#    ))
