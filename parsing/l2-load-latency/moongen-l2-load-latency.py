@@ -23,7 +23,7 @@ mpps_per_mbit = 1 / 64 / 8
 cycles_at_full_load = 3.301 * 10**9  # 3.301GHz
 
 #headers = ['Sent', 'TotalSent','Received','TotalReceived','HistSample', 'HistStats']
-loadgen_headers = ['TotalSent','TotalReceived','HistSample', 'Sent']
+loadgen_headers = ['TotalSent','TotalReceived','HistSample', 'Sent', 'TimestampSent', 'TimestampReceived']
 datasets = {}
 
 nonempty = lambda s: s != ''
@@ -144,6 +144,11 @@ for run in runs:
 
   totals = int(datasets[run].get('loadgen', {}).get('TotalSent',[{}])[0].get('packets',0))
   totalr = int(datasets[run].get('loadgen', {}).get('TotalReceived',[{}])[0].get('packets',0))
+
+  if totals == 0:
+    totals = int(datasets[run].get('loadgen', {}).get('TimestampSent',[{}])[0].get('packets',0))
+    totalr = int(datasets[run].get('loadgen', {}).get('TimestampReceived',[{}])[0].get('packets',0))
+
 
   cycles_per_packet = 3.3 * cycle_vals[0] / sent_avg if sent_avg > 0 else 0
 
