@@ -25,7 +25,7 @@
         width=14cm,
         height=8cm,
         xlabel=Offered Load (mpps),
-        xmin=-0.1, xmax=2.3,
+        xmin=-0.01, xmax=0.5,
         tickpos=left,
         ytick align=outside,
         xtick align=outside
@@ -34,9 +34,9 @@
     ymax=200,
     title={\theexperiment}
   ]
-  \addplot[solid, color=blue] table[x=load_avg, y=rtt2]{double-y-percs.dat};
+  \addplot[solid, color=blue] table[x=x, y=rtt2]{double-y-percs.dat};
   \addlegendentry{RTT Median us (Mod)}
-  \addplot[dotted, color=blue] table[x=load_avg, y=rtt4]{double-y-percs.dat};
+  \addplot[dotted, color=blue] table[x=x, y=rtt4]{double-y-percs.dat};
   \addlegendentry{RTT Upper 1.5\% us (Mod)}
   \nextgroupplot[
     ymax=200
@@ -46,7 +46,7 @@
     mark=x,
     color=blue,
     error bars/.cd, y dir=both, y explicit
-  ] table[x=load_avg, y=irq_avg, y error={irq_stderr}]{double-y-percs.dat};
+  ] table[x=x, y=irq_avg, y error={irq_stderr}]{double-y-percs.dat};
   \addlegendentry{Interrupts / sec (Mod)}
 \pgfplotsset{every axis legend/.append style={at={(0.99,0.95)}, anchor=north east}}
   \nextgroupplot[
@@ -57,7 +57,7 @@
     mark=x,
     color=blue,
     error bars/.cd, y dir=both, y explicit
-  ] table[x=load_avg, y=cycles_avg, y error={cycles_stderr}]{double-y-percs.dat};
+  ] table[x=x, y=cycles_avg, y error={cycles_stderr}]{double-y-percs.dat};
   \addlegendentry{CPU Load (fractional) (Mod)}
 \pgfplotsset{every axis legend/.append style={at={(0.01,0.95)}, anchor=north west}}
   \end{groupplot}
