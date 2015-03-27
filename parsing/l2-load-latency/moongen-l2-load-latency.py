@@ -16,11 +16,13 @@ parser.add_argument('--no-outliers', dest='outliers', action='store_false',
     default=True, help='turn off outlier output')
 parser.add_argument('files', metavar='N', action='store', nargs='+',
     help='input files')
+parser.add_argument('--cpu', dest='cpughz', action='store', default=2.0,
+    type=float, help='CPU Frequency of DUT for Load Calc')
 
 args = parser.parse_args()
 
 mpps_per_mbit = 1 / 64 / 8
-cycles_at_full_load = 3.301 * 10**9  # 3.301GHz
+cycles_at_full_load = args.cpughz * 10**9  # 3.301GHz
 
 #headers = ['Sent', 'TotalSent','Received','TotalReceived','HistSample', 'HistStats']
 loadgen_headers = ['TotalSent','TotalReceived','HistSample', 'Sent', 'TimestampSent', 'TimestampReceived']
