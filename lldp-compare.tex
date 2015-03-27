@@ -27,10 +27,16 @@
         width=14cm,
         height=8cm,
         xlabel=Offered Load (mpps),
-        xmin=-0.01, xmax=0.5,
+        xmin=-0.01, xmax=0.13,
         tickpos=left,
         ytick align=outside,
-        xtick align=outside
+        xtick align=outside,
+        xticklabel style={%
+          /pgf/number format/.cd,
+          fixed,
+          fixed zerofill,
+          precision=2,
+        },
   ]
   \nextgroupplot[
     ymax=200,
@@ -61,7 +67,6 @@
     error bars/.cd, y dir=both, y explicit
   ] table[x=x, y=irq_avg, y error={irq_stderr}]{double-y-percs-base.dat};
   \addlegendentry{Interrupts / sec (Base)}
-\pgfplotsset{every axis legend/.append style={at={(0.99,0.95)}, anchor=north east}}
   \nextgroupplot[
   ymax=1.4
   ]
@@ -93,7 +98,6 @@
     error bars/.cd, y dir=both, y explicit
   ] table[x=x, y=frecvd]{double-y-percs-base.dat};
   \addlegendentry{Returned Packets (fractional) (Base)}
-\pgfplotsset{every axis legend/.append style={at={(0.01,0.95)}, anchor=north west}}
   \end{groupplot}
 \end{tikzpicture}
 

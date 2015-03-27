@@ -12,7 +12,7 @@
 \input{experiment.tex}
 
 \begin{tikzpicture}
-\pgfplotsset{every axis legend/.append style={at={(0.01,0.95)}, anchor=north west}}
+\pgfplotsset{every axis legend/.append style={at={(0.99,0.95)}, anchor=north east}}
  \begin{groupplot}[
     group style={
             group name=my plots,
@@ -28,11 +28,18 @@
         xmin=-0.01, xmax=0.15,
         tickpos=left,
         ytick align=outside,
-        xtick align=outside
+        xtick align=outside,
+        scaled ticks=false,
+        xticklabel style={%
+          /pgf/number format/.cd,
+          fixed,
+          fixed zerofill,
+          precision=2,
+        },
   ]
   \nextgroupplot[
     ymax=200,
-    title={\theexperiment}
+    title={\theexperiment (\thecomment)}
   ]
   \addplot[solid, color=blue] table[x=x, y=rtt2]{double-y-percs.dat};
   \addlegendentry{RTT Median us (Mod)}
@@ -48,7 +55,6 @@
     error bars/.cd, y dir=both, y explicit
   ] table[x=x, y=irq_avg, y error={irq_stderr}]{double-y-percs.dat};
   \addlegendentry{Interrupts / sec (Mod)}
-\pgfplotsset{every axis legend/.append style={at={(0.99,0.95)}, anchor=north east}}
   \nextgroupplot[
   ymax=1.4
   ]
@@ -66,7 +72,13 @@
     error bars/.cd, y dir=both, y explicit
   ] table[x=x, y=frecvd]{double-y-percs.dat};
   \addlegendentry{Returned Packets (fractional) (Mod)}
-\pgfplotsset{every axis legend/.append style={at={(0.01,0.95)}, anchor=north west}}
+  \addplot[
+    dotted,
+    mark=x,
+    color=blue,
+    error bars/.cd, y dir=both, y explicit
+  ] table[x=x, y=tfrac]{double-y-percs.dat};
+  \addlegendentry{Returned TS Packets (fractional) (Mod)}
   \end{groupplot}
 \end{tikzpicture}
 

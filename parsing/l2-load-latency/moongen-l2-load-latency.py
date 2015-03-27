@@ -110,7 +110,7 @@ uniq = lambda xs: filter(lambda x: x is not None, [xs[i] if i == 0 or xs[i-1] !=
 #print("#Offered Load (mpps)\tavg actual mpps sent\tRTT Lower 1% (us)\tRTT Lower Quartile (us)\tRTT Median (us)\tRTT Upper Quartile (us)\tRTT Upper 99% (us)\tAvg. CPU Load (cycles)\tCPU Load StdDev (cycles)\tInterrupts (kHz)")
 #print("x\tload_avg\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\tirq_avg\tirq_stderr")
 print("#Offered Load (mpps)\tavg actual mpps sent\tRTT Median (us)\tRTT 99th perc.\tAvg. CPU Load (cycles)\tCPU Load StdDev (cycles)\tInterrupts (kHz)")
-print("x\tload_avg\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\tirq_avg\tirq_stderr\titr_avg\titr_stderr\tcycles_per_pkt")
+print("x\tload_avg\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\ttsent\ttrecvd\ttfrac\tirq_avg\tirq_stderr\titr_avg\titr_stderr\tcycles_per_pkt")
 
 last_load = 0
 
@@ -147,9 +147,8 @@ for run in runs:
   totals = int(datasets[run].get('loadgen', {}).get('TotalSent',[{}])[0].get('packets',0))
   totalr = int(datasets[run].get('loadgen', {}).get('TotalReceived',[{}])[0].get('packets',0))
 
-  if totals == 0:
-    totals = int(datasets[run].get('loadgen', {}).get('TimestampSent',[{}])[0].get('packets',0))
-    totalr = int(datasets[run].get('loadgen', {}).get('TimestampReceived',[{}])[0].get('packets',0))
+  totalts = int(datasets[run].get('loadgen', {}).get('TimestampSent',[{}])[0].get('packets',0))
+  totaltr = int(datasets[run].get('loadgen', {}).get('TimestampReceived',[{}])[0].get('packets',0))
 
 
   cycles_per_packet = 3.3 * cycle_vals[0] / sent_avg if sent_avg > 0 else 0
@@ -169,6 +168,8 @@ for run in runs:
     delay_len,
     totals, totalr,
     totalr/totals if totals > 0 else 0,
+    totalts, totaltr,
+    totaltr/totalts if totalts > 0 else 0,
     irq[0], irq[1],
     itr[0], itr[1],
     cycles_per_packet

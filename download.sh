@@ -1,11 +1,11 @@
 name=$1
 h1=$2
 h2=$3
-if [ "$h1x" == "x" ]
+if [[ "$h1x" == "x" ]]
 then
 	h1='klaipeda'
 fi
-if [ "$h2x" == "x" ]
+if [[ "$h2x" == "x" ]]
 then
 	h2='tartu'
 fi
