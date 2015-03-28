@@ -145,7 +145,7 @@ for run in runs:
   delay_len = len(delays or [])
 
   totals = int(datasets[run].get('loadgen', {}).get('TotalSent',[{}])[0].get('packets',0))
-  totalr = int(datasets[run].get('loadgen', {}).get('TotalReceived',[{}])[0].get('packets',0))
+  totalr = int(datasets[run].get('loadgen', {}).get('TotalReceived',[{}])[0].get('packets',0)) - int(datasets[run].get('loadgen', {}).get('TimestampReceived',[{}])[0].get('packets',0))
 
   totalts = int(datasets[run].get('loadgen', {}).get('TimestampSent',[{}])[0].get('packets',0))
   totaltr = int(datasets[run].get('loadgen', {}).get('TimestampReceived',[{}])[0].get('packets',0))

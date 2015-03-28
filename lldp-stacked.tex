@@ -25,7 +25,7 @@
         width=14cm,
         height=8cm,
         xlabel=Offered Load (mpps),
-        xmin=-0.01, xmax=0.15,
+        xmin=-0.01, xmax=0.16,
         tickpos=left,
         ytick align=outside,
         xtick align=outside,
@@ -56,7 +56,6 @@
   ] table[x=x, y=irq_avg, y error={irq_stderr}]{double-y-percs.dat};
   \addlegendentry{Interrupts / sec (Mod)}
   \nextgroupplot[
-  ymax=1.4
   ]
   \addplot[
     solid,
@@ -79,6 +78,7 @@
     error bars/.cd, y dir=both, y explicit
   ] table[x=x, y=tfrac]{double-y-percs.dat};
   \addlegendentry{Returned TS Packets (fractional) (Mod)}
+\pgfplotsset{every axis legend/.append style={at={(0.99,-0.5)}, anchor=south east}}
   \end{groupplot}
 \end{tikzpicture}
 
