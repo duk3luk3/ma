@@ -16,7 +16,7 @@ parser.add_argument('--no-outliers', dest='outliers', action='store_false',
     default=True, help='turn off outlier output')
 parser.add_argument('files', metavar='N', action='store', nargs='+',
     help='input files')
-parser.add_argument('--cpu', dest='cpughz', action='store', default=2.0,
+parser.add_argument('--cpu', dest='cpughz', action='store', default=3.301,
     type=float, help='CPU Frequency of DUT for Load Calc')
 
 args = parser.parse_args()

@@ -25,14 +25,14 @@
         width=14cm,
         height=8cm,
         xlabel=Offered Load (mpps),
-        xmin=-0.1, xmax=2.3,
+        xmin=-0.1, xmax=4,
         tickpos=left,
         ytick align=outside,
         xtick align=outside
   ]
   \nextgroupplot[
     ymax=200,
-    title={\theexperiment}
+    title={\theexperiment (\thecomment)}
   ]
   \addplot[solid, color=blue] table[x=load_avg, y=rtt2]{double-y-percs.dat};
   \addlegendentry{RTT Median us (Mod)}
@@ -50,7 +50,7 @@
   \addlegendentry{Interrupts / sec (Mod)}
 \pgfplotsset{every axis legend/.append style={at={(0.99,0.95)}, anchor=north east}}
   \nextgroupplot[
-  ymax=100
+  ymax=2
   ]
   \addplot[
     solid,
@@ -58,7 +58,12 @@
     color=blue,
     error bars/.cd, y dir=both, y explicit
   ] table[x=load_avg, y=cycles_avg, y error={cycles_stderr}]{double-y-percs.dat};
-  \addlegendentry{CPU Load (fractional) (Mod)}
+  \addlegendentry{CPU load}
+  \addplot[
+    dashed,
+    color=blue,
+  ] table[x=load_avg, y=frecvd,]{double-y-percs.dat};
+  \addlegendentry{Sustained packet rate}
 \pgfplotsset{every axis legend/.append style={at={(0.01,0.95)}, anchor=north west}}
   \end{groupplot}
 \end{tikzpicture}

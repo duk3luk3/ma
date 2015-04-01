@@ -1,13 +1,15 @@
 name=$1
-h1=$2
-h2=$3
-if [[ "$h1x" == "x" ]]
+if [ -z "$2" ]
 then
 	h1='klaipeda'
+else
+	h1=$2
 fi
-if [[ "$h2x" == "x" ]]
+if [ -z "$3" ]
 then
 	h2='tartu'
+else
+	h2=$3
 fi
 
 echo "Downloading $h1 and $h2"
@@ -23,4 +25,3 @@ echo "\newcommand{\theexperiment}{${name}}" | sed 's/_/\\_/g' > experiment.tex
 comment=$(tail -n 1 comment)
 echo "\newcommand{\thecomment}{${comment}}" | sed 's/_/\\_/g' >> experiment.tex
 
-cd ..
