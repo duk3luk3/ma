@@ -25,7 +25,7 @@ mpps_per_mbit = 1 / 64 / 8
 cycles_at_full_load = args.cpughz * 10**9  # 3.301GHz
 
 #headers = ['Sent', 'TotalSent','Received','TotalReceived','HistSample', 'HistStats']
-loadgen_headers = ['TotalSent','TotalReceived','HistSample', 'Sent', 'TimestampSent', 'TimestampReceived']
+loadgen_headers = ['TotalSent','TotalReceived','HistSample','BgHistSample', 'Sent', 'TimestampSent', 'TimestampReceived']
 datasets = {}
 
 nonempty = lambda s: s != ''
@@ -110,7 +110,7 @@ uniq = lambda xs: filter(lambda x: x is not None, [xs[i] if i == 0 or xs[i-1] !=
 #print("#Offered Load (mpps)\tavg actual mpps sent\tRTT Lower 1% (us)\tRTT Lower Quartile (us)\tRTT Median (us)\tRTT Upper Quartile (us)\tRTT Upper 99% (us)\tAvg. CPU Load (cycles)\tCPU Load StdDev (cycles)\tInterrupts (kHz)")
 #print("x\tload_avg\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\tirq_avg\tirq_stderr")
 print("#Offered Load (mpps)\tavg actual mpps sent\tRTT Median (us)\tRTT 99th perc.\tAvg. CPU Load (cycles)\tCPU Load StdDev (cycles)\tInterrupts (kHz)")
-print("x\tload_avg\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\ttsent\ttrecvd\ttfrac\tirq_avg\tirq_stderr\titr_avg\titr_stderr\tcycles_per_pkt")
+print("x\tload_avg\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\ttsent\ttrecvd\ttfrac\tirq_avg\tirq_stderr\titr_avg\titr_stderr\tcycles_per_pkt\tbg_rtt2\tbg_rtt4")
 
 last_load = 0
 
@@ -119,6 +119,12 @@ for run in runs:
   for sample in datasets[run].get('loadgen', {}).get('HistSample',[]):
     for i in range(int(sample['count'])):
       delays.append(float(sample['delay']) / 1000)
+
+  bgdelays = []
+  for sample in datasets[run].get('loadgen', {}).get('BgHistSample',[]):
+    for i in range(int(sample['count'])):
+      bgdelays.append(float(sample['delay']) / 1000)
+
 
   sent_avg = avg([float(x['rate']) for x in datasets[run].get('loadgen',{}).get('Sent',[])])
 
@@ -131,6 +137,7 @@ for run in runs:
   cycles = list(map(cycles_tr, datasets[run]['perf']))
 
   delay_percs = numpy.percentile(delays, [1,25,50,75,99]) if delays else [0,0,0,0,0]
+  bgdelay_percs = numpy.percentile(bgdelays, [1,25,50,75,99]) if bgdelays else [0,0,0,0,0]
   cycle_vals = [avg(cycles), numpy.std(cycles)]
 
   interrupts = list(map(irq_sel, datasets[run]['perf']))
@@ -172,7 +179,8 @@ for run in runs:
     totaltr/totalts if totalts > 0 else 0,
     irq[0], irq[1],
     itr[0], itr[1],
-    cycles_per_packet
+    cycles_per_packet,
+    bgdelay_percs[2],bgdelay_percs[3]
     )
 
 #  print("{}{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(
