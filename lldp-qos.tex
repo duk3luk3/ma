@@ -41,14 +41,13 @@
     ymax=200,
     title={\theexperiment (\thecomment)}
   ]
-  \addplot[solid, color=blue] table[x=x, y=rtt2]{double-y-percs.dat};
+  \addplot[solid, color=orange] table[x=x, y=rtt2]{double-y-percs.dat};
   \addlegendentry{RTT Median us (Mod)}
-  \addplot[dotted, color=blue] table[x=x, y=rtt4]{double-y-percs.dat};
+  \addplot[dotted, color=orange] table[x=x, y=rtt4]{double-y-percs.dat};
   \addlegendentry{RTT Upper 1.5\% us (Mod)}
   \addplot[dashed, color=blue] table[x=x, y=bg_rtt2]{double-y-percs.dat};
-  \addlegendentry{RTT Median us (Mod)}
+  \addlegendentry{RTT Median us (BG)}
   \addplot[dotted, color=blue] table[x=x, y=bg_rtt4]{double-y-percs.dat};
-  \addlegendentry{RTT Upper 1.5\% us (Mod)}
   \nextgroupplot[
     ymax=200
     ]
@@ -73,8 +72,15 @@
     mark=x,
     color=blue,
     error bars/.cd, y dir=both, y explicit
-  ] table[x=x, y=frecvd]{double-y-percs.dat};
-  \addlegendentry{Returned Packets (fractional) (Mod)}
+  ] table[x=x, y expr=\thisrow{bg_r} / (0.9 * \thisrow{nsent})]{double-y-percs.dat};
+  \addlegendentry{Returned BG packets (Mod)}
+  \addplot[
+    dashed,
+    mark=x,
+    color=orange,
+    error bars/.cd, y dir=both, y explicit
+  ] table[x=x, y expr=\thisrow{qos_r} / (0.1 * \thisrow{nsent})]{double-y-percs.dat};
+  \addlegendentry{Returned QOS packets (Mod)}
   \addplot[
     dotted,
     mark=x,

@@ -25,7 +25,7 @@ mpps_per_mbit = 1 / 64 / 8
 cycles_at_full_load = args.cpughz * 10**9  # 3.301GHz
 
 #headers = ['Sent', 'TotalSent','Received','TotalReceived','HistSample', 'HistStats']
-loadgen_headers = ['TotalSent','TotalReceived','HistSample','BgHistSample', 'Sent', 'TimestampSent', 'TimestampReceived']
+loadgen_headers = ['TotalSent','TotalReceived','HistSample','BgHistSample', 'Sent', 'TimestampSent', 'TimestampReceived', 'BgReceived', 'QosReceived', 'BgTotalReceived', 'QosTotalReceived']
 datasets = {}
 
 nonempty = lambda s: s != ''
@@ -110,7 +110,7 @@ uniq = lambda xs: filter(lambda x: x is not None, [xs[i] if i == 0 or xs[i-1] !=
 #print("#Offered Load (mpps)\tavg actual mpps sent\tRTT Lower 1% (us)\tRTT Lower Quartile (us)\tRTT Median (us)\tRTT Upper Quartile (us)\tRTT Upper 99% (us)\tAvg. CPU Load (cycles)\tCPU Load StdDev (cycles)\tInterrupts (kHz)")
 #print("x\tload_avg\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\tirq_avg\tirq_stderr")
 print("#Offered Load (mpps)\tavg actual mpps sent\tRTT Median (us)\tRTT 99th perc.\tAvg. CPU Load (cycles)\tCPU Load StdDev (cycles)\tInterrupts (kHz)")
-print("x\tload_avg\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\ttsent\ttrecvd\ttfrac\tirq_avg\tirq_stderr\titr_avg\titr_stderr\tcycles_per_pkt\tbg_rtt2\tbg_rtt4")
+print("x\tload_avg\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\ttsent\ttrecvd\ttfrac\tirq_avg\tirq_stderr\titr_avg\titr_stderr\tcycles_per_pkt\tbg_rtt2\tbg_rtt4\tbg_s\tbg_r\tqos_s\tqos_r")
 
 last_load = 0
 
@@ -157,6 +157,12 @@ for run in runs:
   totalts = int(datasets[run].get('loadgen', {}).get('TimestampSent',[{}])[0].get('packets',0))
   totaltr = int(datasets[run].get('loadgen', {}).get('TimestampReceived',[{}])[0].get('packets',0))
 
+  totalqs = int(datasets[run].get('loadgen', {}).get('QosTotalSent',[{}])[0].get('packets',0))
+  totalqr = int(datasets[run].get('loadgen', {}).get('QosTotalReceived',[{}])[0].get('packets',0))
+  
+  totalbgs = int(datasets[run].get('loadgen', {}).get('BgTotalSent',[{}])[0].get('packets',0))
+  totalbgr = int(datasets[run].get('loadgen', {}).get('BgTotalReceived',[{}])[0].get('packets',0))
+
 
   cycles_per_packet = 3.3 * cycle_vals[0] / sent_avg if sent_avg > 0 else 0
 
@@ -180,7 +186,9 @@ for run in runs:
     irq[0], irq[1],
     itr[0], itr[1],
     cycles_per_packet,
-    bgdelay_percs[2],bgdelay_percs[3]
+    bgdelay_percs[2],bgdelay_percs[3],
+    totalbgs, totalbgr,
+    totalqs, totalqr
     )
 
 #  print("{}{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}".format(
