@@ -18,6 +18,8 @@ parser.add_argument('files', metavar='N', action='store', nargs='+',
     help='input files')
 parser.add_argument('--cpu', dest='cpughz', action='store', default=3.301,
     type=float, help='CPU Frequency of DUT for Load Calc')
+parser.add_argument('--roffset',dest='roffset',action='store_true',default=False,
+    help='offset timestamp receive from load receive')
 
 args = parser.parse_args()
 
@@ -25,7 +27,7 @@ mpps_per_mbit = 1 / 64 / 8
 cycles_at_full_load = args.cpughz * 10**9  # 3.301GHz
 
 #headers = ['Sent', 'TotalSent','Received','TotalReceived','HistSample', 'HistStats']
-loadgen_headers = ['TotalSent','TotalReceived','HistSample','BgHistSample', 'Sent', 'TimestampSent', 'TimestampReceived', 'BgReceived', 'QosReceived', 'BgTotalReceived', 'QosTotalReceived']
+loadgen_headers = ['TotalSent','TotalReceived','HistSample','BgHistSample', 'Sent', 'TimestampSent', 'TimestampReceived', 'BgReceived', 'QosReceived', 'BgTotalReceived', 'QosTotalReceived','QosTotalSent','BgTotalSent']
 datasets = {}
 
 nonempty = lambda s: s != ''
@@ -109,6 +111,7 @@ uniq = lambda xs: filter(lambda x: x is not None, [xs[i] if i == 0 or xs[i-1] !=
 
 #print("#Offered Load (mpps)\tavg actual mpps sent\tRTT Lower 1% (us)\tRTT Lower Quartile (us)\tRTT Median (us)\tRTT Upper Quartile (us)\tRTT Upper 99% (us)\tAvg. CPU Load (cycles)\tCPU Load StdDev (cycles)\tInterrupts (kHz)")
 #print("x\tload_avg\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\tirq_avg\tirq_stderr")
+print("#" + os.getcwd())
 print("#Offered Load (mpps)\tavg actual mpps sent\tRTT Median (us)\tRTT 99th perc.\tAvg. CPU Load (cycles)\tCPU Load StdDev (cycles)\tInterrupts (kHz)")
 print("x\tload_avg\trtt0\trtt1\trtt2\trtt3\trtt4\tcycles_avg\tcycles_stderr\trtt_nsamples\tnsent\tnrecvd\tfrecvd\ttsent\ttrecvd\ttfrac\tirq_avg\tirq_stderr\titr_avg\titr_stderr\tcycles_per_pkt\tbg_rtt2\tbg_rtt4\tbg_s\tbg_r\tqos_s\tqos_r")
 
@@ -151,17 +154,24 @@ for run in runs:
 
   delay_len = len(delays or [])
 
-  totals = int(datasets[run].get('loadgen', {}).get('TotalSent',[{}])[0].get('packets',0))
-  totalr = int(datasets[run].get('loadgen', {}).get('TotalReceived',[{}])[0].get('packets',0)) - int(datasets[run].get('loadgen', {}).get('TimestampReceived',[{}])[0].get('packets',0))
-
-  totalts = int(datasets[run].get('loadgen', {}).get('TimestampSent',[{}])[0].get('packets',0))
-  totaltr = int(datasets[run].get('loadgen', {}).get('TimestampReceived',[{}])[0].get('packets',0))
-
   totalqs = int(datasets[run].get('loadgen', {}).get('QosTotalSent',[{}])[0].get('packets',0))
   totalqr = int(datasets[run].get('loadgen', {}).get('QosTotalReceived',[{}])[0].get('packets',0))
   
   totalbgs = int(datasets[run].get('loadgen', {}).get('BgTotalSent',[{}])[0].get('packets',0))
   totalbgr = int(datasets[run].get('loadgen', {}).get('BgTotalReceived',[{}])[0].get('packets',0))
+  
+  totalts = int(datasets[run].get('loadgen', {}).get('TimestampSent',[{}])[0].get('packets',0))
+  totaltr = int(datasets[run].get('loadgen', {}).get('TimestampReceived',[{}])[0].get('packets',0))
+
+  totals = int(datasets[run].get('loadgen', {}).get('TotalSent',[{}])[0].get('packets',0))
+  totalr = int(datasets[run].get('loadgen', {}).get('TotalReceived',[{}])[0].get('packets',0))
+
+  if totalr <= 0:
+    totalr = totalqr + totalbgr
+
+  if args.roffset:
+    totalr = totalr - totaltr
+
 
 
   cycles_per_packet = 3.3 * cycle_vals[0] / sent_avg if sent_avg > 0 else 0

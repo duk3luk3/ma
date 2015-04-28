@@ -25,7 +25,8 @@
         width=14cm,
         height=8cm,
         xlabel=Offered Load (mpps),
-        xmin=-0.01, xmax=0.16,
+        xmin=-0.01,
+%        xmax=0.2,
         tickpos=left,
         ytick align=outside,
         xtick align=outside,
@@ -72,14 +73,14 @@
     mark=x,
     color=blue,
     error bars/.cd, y dir=both, y explicit
-  ] table[x=x, y expr=\thisrow{bg_r} / (0.9 * \thisrow{nsent})]{double-y-percs.dat};
+  ] table[x=x, y expr=\thisrow{bg_r} / \thisrow{bg_s}]{double-y-percs.dat};
   \addlegendentry{Returned BG packets (Mod)}
   \addplot[
     dashed,
     mark=x,
     color=orange,
     error bars/.cd, y dir=both, y explicit
-  ] table[x=x, y expr=\thisrow{qos_r} / (0.1 * \thisrow{nsent})]{double-y-percs.dat};
+  ] table[x=x, y expr=\thisrow{qos_r} / \thisrow{qos_s})]{double-y-percs.dat};
   \addlegendentry{Returned QOS packets (Mod)}
   \addplot[
     dotted,

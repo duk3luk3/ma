@@ -42,8 +42,7 @@ Green: \theexperiment \ (\thecomment) \ \\
         xtick align=outside
   ]
   \nextgroupplot[
-    ymax=5000,
-    ymode=log
+    ymax=150
   ]
   \addplot[solid, color=red] table[x=load_avg, y=rtt2]{double-y-percs-base.dat};
   \addlegendentry{RTT Median [us] (Base)}
@@ -60,7 +59,6 @@ Green: \theexperiment \ (\thecomment) \ \\
   \addplot[dotted, color=green] table[x=load_avg, y=rtt4]{double-y-percs.dat};
   \addlegendentry{RTT Upper 99th perc. [us]}
   \nextgroupplot[
-    ymax=200
     ]
   \addplot[
     solid,
